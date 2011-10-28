@@ -40,7 +40,7 @@ init_rdbmsDbParamTable(void)
     /*
      * TODO:300:o: Perform rdbmsDbParamTable one-time module initialization.
      */
-     
+
     /*
      * here we initialize all the tables we're planning on supporting
      */
@@ -50,7 +50,7 @@ init_rdbmsDbParamTable(void)
 } /* init_rdbmsDbParamTable */
 
 /**
- * Initialize the table rdbmsDbParamTable 
+ * Initialize the table rdbmsDbParamTable
  *    (Define its contents and how it's structured)
  */
 void
@@ -75,13 +75,13 @@ initialize_table_rdbmsDbParamTable(void)
      * string token is used to add, find or remove pointers.
      */
     user_context = netsnmp_create_data_list("rdbmsDbParamTable", NULL, NULL);
-    
+
     /*
      * No support for any flags yet, but in the future you would
      * set any flags here.
      */
     flags = 0;
-    
+
     /*
      * call interface initialization code
      */

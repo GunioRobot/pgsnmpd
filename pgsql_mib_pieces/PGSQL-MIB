@@ -3898,7 +3898,7 @@ pgsqlPgTsConfigEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsConfigEntry 1 }
 
 pgsqlPgTsConfigCfgname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION
@@ -4035,7 +4035,7 @@ pgsqlPgTsDictEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsDictEntry 1 }
 
 pgsqlPgTsDictDictname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION
@@ -4114,7 +4114,7 @@ pgsqlPgTsParserEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsParserEntry 1 }
 
 pgsqlPgTsParserPrsname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION

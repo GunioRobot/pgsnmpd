@@ -81,31 +81,31 @@ typedef netsnmp_data_list * rdbmsDbTable_registration_ptr;
  * rdbmsDbTable.
  */
 typedef struct rdbmsDbTable_data_s {
-    
+
         /*
          * rdbmsDbPrivateMibOID(2)/OBJECTID/ASN_OBJECT_ID/oid(oid)//L/A/w/e/r/d/h
          */
    oid   rdbmsDbPrivateMibOID[128];
 size_t      rdbmsDbPrivateMibOID_len; /* # of oid elements, not bytes */
-    
+
         /*
          * rdbmsDbVendorName(3)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsDbVendorName[255];
 size_t      rdbmsDbVendorName_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsDbName(4)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsDbName[255];
 size_t      rdbmsDbName_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsDbContact(5)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
          */
    char   rdbmsDbContact[255];
 size_t      rdbmsDbContact_len; /* # of char elements, not bytes */
-    
+
 } rdbmsDbTable_data;
 
 
@@ -149,9 +149,9 @@ typedef struct rdbmsDbTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsDbTable_IDX_LEN];
-    
+
     rdbmsDbTable_mib_index        tbl_idx;
-    
+
     rdbmsDbTable_data              data;
     rdbmsDbTable_undo_data       * undo;
     unsigned int                column_set_flags; /* flags for set columns */
@@ -171,7 +171,7 @@ typedef struct rdbmsDbTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsDbTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */
@@ -189,7 +189,7 @@ typedef struct rdbmsDbTable_ref_rowreq_ctx_s {
     int rdbmsDbTable_pre_request(rdbmsDbTable_registration_ptr user_context);
     int rdbmsDbTable_post_request(rdbmsDbTable_registration_ptr user_context);
 
-    int rdbmsDbTable_check_dependencies(rdbmsDbTable_rowreq_ctx * rowreq_ctx); 
+    int rdbmsDbTable_check_dependencies(rdbmsDbTable_rowreq_ctx * rowreq_ctx);
     int rdbmsDbTable_commit(rdbmsDbTable_rowreq_ctx * rowreq_ctx);
 
     void initialize_table_rdbmsDbTable(void);

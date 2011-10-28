@@ -81,39 +81,39 @@ typedef netsnmp_data_list * rdbmsDbLimitedResourceTable_registration_ptr;
  * rdbmsDbLimitedResourceTable.
  */
 typedef struct rdbmsDbLimitedResourceTable_data_s {
-    
+
         /*
          * rdbmsDbLimitedResourceID(2)/AutonomousType/ASN_OBJECT_ID/oid(oid)//L/A/w/e/r/d/h
          */
    oid   rdbmsDbLimitedResourceID[128];
 size_t      rdbmsDbLimitedResourceID_len; /* # of oid elements, not bytes */
-    
+
         /*
          * rdbmsDbLimitedResourceLimit(3)/INTEGER/ASN_INTEGER/long(long)//l/A/W/e/R/d/h
          */
    long   rdbmsDbLimitedResourceLimit;
-    
+
         /*
          * rdbmsDbLimitedResourceCurrent(4)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/R/d/h
          */
    long   rdbmsDbLimitedResourceCurrent;
-    
+
         /*
          * rdbmsDbLimitedResourceHighwater(5)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/R/d/h
          */
    long   rdbmsDbLimitedResourceHighwater;
-    
+
         /*
          * rdbmsDbLimitedResourceFailures(6)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsDbLimitedResourceFailures;
-    
+
         /*
          * rdbmsDbLimitedResourceDescription(7)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
          */
    char   rdbmsDbLimitedResourceDescription[255];
 size_t      rdbmsDbLimitedResourceDescription_len; /* # of char elements, not bytes */
-    
+
 } rdbmsDbLimitedResourceTable_data;
 
 
@@ -160,9 +160,9 @@ typedef struct rdbmsDbLimitedResourceTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsDbLimitedResourceTable_IDX_LEN];
-    
+
     rdbmsDbLimitedResourceTable_mib_index        tbl_idx;
-    
+
     rdbmsDbLimitedResourceTable_data              data;
 
     /*
@@ -179,7 +179,7 @@ typedef struct rdbmsDbLimitedResourceTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsDbLimitedResourceTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

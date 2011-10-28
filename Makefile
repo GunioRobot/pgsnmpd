@@ -37,7 +37,7 @@ PG_LIBS = $(libpq_pgport) $(AGENTLIBS) -lyaml
 
 DOCS = README.pgsnmpd
 
-DATA = pgsnmpd.conf pgsnmpd.sql 
+DATA = pgsnmpd.conf pgsnmpd.sql
 
 ifndef DONT_USE_PGXS
 PGXS := $(shell pg_config --pgxs)

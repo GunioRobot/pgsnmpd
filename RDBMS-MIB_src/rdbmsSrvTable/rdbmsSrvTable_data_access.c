@@ -21,7 +21,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -102,7 +102,7 @@ rdbmsSrvTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsSrvTable:rdbmsSrvTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsSrvTable_container_init\n");
         return;
@@ -161,12 +161,12 @@ rdbmsSrvTable_cache_load(netsnmp_container *container)
     rdbmsSrvTable_rowreq_ctx *rowreq_ctx;
     oid rdbmsSrvPrivateMibOID[128] = { 1,3,6,1,4,1,27645 };
     size_t                 count = 0;
-    
+
         /*
          * applIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h
          */
 
-	/* Eventually we'll probably want to make this actually pay attention to 
+	/* Eventually we'll probably want to make this actually pay attention to
 	 * APPLICATION-MIB. For now, I'm ignoring it. When we make that change, we'll need to
 	 * modify the other files that use applIndex (the one I'm thinking of now is rdbmsRelTable */
    long   applIndex = 1;
@@ -182,7 +182,7 @@ rdbmsSrvTable_cache_load(netsnmp_container *container)
      * set the index(es) [and data, optionally] and insert into
      * the container.
      */
-    
+
     /* There's only one server, so we only need to create one row */
         /*
          * TODO:352:M: |   |-> set indexes in new rdbmsSrvTable rowreq context.
@@ -228,16 +228,16 @@ rdbmsSrvTable_cache_load(netsnmp_container *container)
 
     rowreq_ctx->data.rdbmsSrvVendorName_len = vendor_len * sizeof(rowreq_ctx->data.rdbmsSrvVendorName[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvVendorName, vendor_name, rowreq_ctx->data.rdbmsSrvVendorName_len );
-    
+
     rowreq_ctx->data.rdbmsSrvProductName_len = product_len * sizeof(rowreq_ctx->data.rdbmsSrvProductName[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvProductName, product_name, rowreq_ctx->data.rdbmsSrvProductName_len );
-    
+
     rowreq_ctx->data.rdbmsSrvContact_len = contact_len * sizeof(rowreq_ctx->data.rdbmsSrvContact[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvContact, contact_name, rowreq_ctx->data.rdbmsSrvContact_len );
 
     PQclear(pgsnmpd_tbl_qry);
-    
-        
+
+
         /*
          * insert into table container
          */

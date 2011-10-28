@@ -81,31 +81,31 @@ typedef netsnmp_data_list * rdbmsSrvTable_registration_ptr;
  * rdbmsSrvTable.
  */
 typedef struct rdbmsSrvTable_data_s {
-    
+
         /*
          * rdbmsSrvPrivateMibOID(1)/OBJECTID/ASN_OBJECT_ID/oid(oid)//L/A/w/e/r/d/h
          */
    oid   rdbmsSrvPrivateMibOID[128];
 size_t      rdbmsSrvPrivateMibOID_len; /* # of oid elements, not bytes */
-    
+
         /*
          * rdbmsSrvVendorName(2)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsSrvVendorName[255];
 size_t      rdbmsSrvVendorName_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsSrvProductName(3)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsSrvProductName[255];
 size_t      rdbmsSrvProductName_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsSrvContact(4)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
          */
    char   rdbmsSrvContact[255];
 size_t      rdbmsSrvContact_len; /* # of char elements, not bytes */
-    
+
 } rdbmsSrvTable_data;
 
 
@@ -141,9 +141,9 @@ typedef struct rdbmsSrvTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsSrvTable_IDX_LEN];
-    
+
     rdbmsSrvTable_mib_index        tbl_idx;
-    
+
     rdbmsSrvTable_data              data;
 
     /*
@@ -160,7 +160,7 @@ typedef struct rdbmsSrvTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsSrvTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

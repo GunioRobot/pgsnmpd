@@ -104,9 +104,9 @@ rdbmsDbParamName_map(char **mib_rdbmsDbParamName_val_ptr_ptr, size_t *mib_rdbmsD
 
     netsnmp_assert(NULL != raw_rdbmsDbParamName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbParamName_val_ptr_ptr) && (NULL != mib_rdbmsDbParamName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbParamName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -192,9 +192,9 @@ int
 rdbmsDbParamSubIndex_map(long *mib_rdbmsDbParamSubIndex_val_ptr, long raw_rdbmsDbParamSubIndex_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbParamSubIndex_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamSubIndex_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbParamSubIndex mapping.
      * If the values for your data type don't exactly match the
@@ -226,7 +226,7 @@ rdbmsDbParamTable_indexes_set_tbl_idx(rdbmsDbParamTable_mib_index *tbl_idx, long
 
     /* rdbmsDbIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbIndex = rdbmsDbIndex_val;
-    
+
     /* rdbmsDbParamName(1)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H */
      tbl_idx->rdbmsDbParamName_len = sizeof(tbl_idx->rdbmsDbParamName);
     /*
@@ -239,10 +239,10 @@ rdbmsDbParamTable_indexes_set_tbl_idx(rdbmsDbParamTable_mib_index *tbl_idx, long
     }
     tbl_idx->rdbmsDbParamName_len = rdbmsDbParamName_val_ptr_len * sizeof(tbl_idx->rdbmsDbParamName[0]);
     memcpy( tbl_idx->rdbmsDbParamName, rdbmsDbParamName_val_ptr, tbl_idx->rdbmsDbParamName_len );
-    
+
     /* rdbmsDbParamSubIndex(2)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbParamSubIndex = rdbmsDbParamSubIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsDbParamTable_indexes_set_tbl_idx */
@@ -332,9 +332,9 @@ rdbmsDbParamID_map(oid **mib_rdbmsDbParamID_val_ptr_ptr, size_t *mib_rdbmsDbPara
 
     netsnmp_assert(NULL != raw_rdbmsDbParamID_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbParamID_val_ptr_ptr) && (NULL != mib_rdbmsDbParamID_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamID_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbParamID non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -396,7 +396,7 @@ int
 rdbmsDbParamID_get( rdbmsDbParamTable_rowreq_ctx *rowreq_ctx, oid **rdbmsDbParamID_val_ptr_ptr, size_t *rdbmsDbParamID_val_ptr_len_ptr )
 {
    /* Until we have a parameter with multiple values that won't fit into
-    * a 255 character string when rendered as a comma-separated list, we 
+    * a 255 character string when rendered as a comma-separated list, we
     * don't need a value at this OID */
    return MFD_SKIP;
    /** we should have a non-NULL pointer and enough storage */
@@ -485,9 +485,9 @@ rdbmsDbParamCurrValue_map(char **mib_rdbmsDbParamCurrValue_val_ptr_ptr, size_t *
 
     netsnmp_assert(NULL != raw_rdbmsDbParamCurrValue_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbParamCurrValue_val_ptr_ptr) && (NULL != mib_rdbmsDbParamCurrValue_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamCurrValue_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbParamCurrValue non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -631,9 +631,9 @@ rdbmsDbParamComment_map(char **mib_rdbmsDbParamComment_val_ptr_ptr, size_t *mib_
 
     netsnmp_assert(NULL != raw_rdbmsDbParamComment_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbParamComment_val_ptr_ptr) && (NULL != mib_rdbmsDbParamComment_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamComment_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbParamComment non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple

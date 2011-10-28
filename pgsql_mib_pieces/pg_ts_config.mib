@@ -33,7 +33,7 @@ pgsqlPgTsConfigEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsConfigEntry 1 }
 
 pgsqlPgTsConfigCfgname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION

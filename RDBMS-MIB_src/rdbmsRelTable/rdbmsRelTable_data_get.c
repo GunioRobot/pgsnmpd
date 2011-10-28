@@ -69,10 +69,10 @@ rdbmsRelTable_indexes_set_tbl_idx(rdbmsRelTable_mib_index *tbl_idx, long rdbmsDb
 
     /* rdbmsDbIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbIndex = rdbmsDbIndex_val;
-    
+
     /* applIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->applIndex = applIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsRelTable_indexes_set_tbl_idx */
@@ -162,9 +162,9 @@ int
 rdbmsRelState_map(u_long *mib_rdbmsRelState_val_ptr, u_long raw_rdbmsRelState_val)
 {
     netsnmp_assert(NULL != mib_rdbmsRelState_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsRelTable:rdbmsRelState_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsRelState enum mapping.
      * uses INTERNAL_* macros defined in the header files
@@ -281,9 +281,9 @@ rdbmsRelActiveTime_map(char **mib_rdbmsRelActiveTime_val_ptr_ptr, size_t *mib_rd
 
     netsnmp_assert(NULL != raw_rdbmsRelActiveTime_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsRelActiveTime_val_ptr_ptr) && (NULL != mib_rdbmsRelActiveTime_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsRelTable:rdbmsRelActiveTime_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsRelActiveTime non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple

@@ -35,7 +35,7 @@ typedef struct rdbmsDbTable_interface_ctx_s {
    netsnmp_cache                  *cache; /* optional cache */
 
    rdbmsDbTable_registration_ptr      user_ctx;
-   
+
    netsnmp_table_registration_info  tbl_info;
 
    netsnmp_baby_steps_access_methods access_multiplexer;
@@ -69,7 +69,7 @@ void rdbmsDbTable_release_data(rdbmsDbTable_data *data);
 
 /**
  * @internal
- * Initialize the table rdbmsDbTable 
+ * Initialize the table rdbmsDbTable
  *    (Define its contents and how it's structured)
  */
 void
@@ -119,7 +119,7 @@ _rdbmsDbTable_initialize_interface(rdbmsDbTable_registration_ptr reg_ptr,  u_lon
         snmp_log(LOG_ERR,"could not initialize container for rdbmsDbTable\n");
         return;
     }
-    
+
     /*
      * access_multiplexer: REQUIRED wrapper for get request handling
      */
@@ -147,7 +147,7 @@ _rdbmsDbTable_initialize_interface(rdbmsDbTable_registration_ptr reg_ptr,  u_lon
      */
     access_multiplexer->commit = _mfd_rdbmsDbTable_commit;
     access_multiplexer->undo_commit = _mfd_rdbmsDbTable_undo_commit;
-    
+
     /*
      * REQUIRED for tables with dependencies
      */
@@ -158,7 +158,7 @@ _rdbmsDbTable_initialize_interface(rdbmsDbTable_registration_ptr reg_ptr,  u_lon
      * Create a registration, save our reg data, register table.
      */
     DEBUGMSGTL(("rdbmsDbTable:init_rdbmsDbTable",
-                "Registering rdbmsDbTable as a mibs-for-dummies table.\n"));		 
+                "Registering rdbmsDbTable as a mibs-for-dummies table.\n"));
     handler = netsnmp_baby_steps_access_multiplexer_get(access_multiplexer);
     reginfo = netsnmp_handler_registration_create("rdbmsDbTable", handler,
                                                   rdbmsDbTable_oid,
@@ -189,14 +189,14 @@ _rdbmsDbTable_initialize_interface(rdbmsDbTable_registration_ptr reg_ptr,  u_lon
         mfd_modes |= BABY_STEP_PRE_REQUEST;
     if( access_multiplexer->post_request )
         mfd_modes |= BABY_STEP_POST_REQUEST;
-    
+
     if( access_multiplexer->undo_setup )
         mfd_modes |= BABY_STEP_UNDO_SETUP;
     if( access_multiplexer->undo_cleanup )
         mfd_modes |= BABY_STEP_UNDO_CLEANUP;
     if( access_multiplexer->undo_sets )
         mfd_modes |= BABY_STEP_UNDO_SETS;
-    
+
     if( access_multiplexer->row_creation )
         mfd_modes |= BABY_STEP_ROW_CREATE;
     if( access_multiplexer->consistency_checks )
@@ -205,7 +205,7 @@ _rdbmsDbTable_initialize_interface(rdbmsDbTable_registration_ptr reg_ptr,  u_lon
         mfd_modes |= BABY_STEP_COMMIT;
     if( access_multiplexer->undo_commit )
         mfd_modes |= BABY_STEP_UNDO_COMMIT;
-    
+
     handler = netsnmp_baby_steps_handler_get(mfd_modes);
     netsnmp_inject_handler(reginfo, handler);
 
@@ -256,7 +256,7 @@ rdbmsDbTable_index_to_oid(netsnmp_index *oid_idx,
                          rdbmsDbTable_mib_index *mib_idx)
 {
     int err = SNMP_ERR_NOERROR;
-    
+
     /*
      * temp storage for parsing indexes
      */
@@ -308,7 +308,7 @@ rdbmsDbTable_index_from_oid(netsnmp_index *oid_idx,
                          rdbmsDbTable_mib_index *mib_idx)
 {
     int err = SNMP_ERR_NOERROR;
-    
+
     /*
      * temp storage for parsing indexes
      */
@@ -423,11 +423,11 @@ rdbmsDbTable_release_rowreq_ctx(rdbmsDbTable_rowreq_ctx *rowreq_ctx)
     DEBUGMSGTL(("internal:rdbmsDbTable:rdbmsDbTable_release_rowreq_ctx","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
 
     if(rowreq_ctx->undo)
         rdbmsDbTable_release_data(rowreq_ctx->undo);
- 
+
     /*
      * free index oid pointer
      */
@@ -456,7 +456,7 @@ _mfd_rdbmsDbTable_pre_request(netsnmp_mib_handler *handler,
                     "rdbmsDbTable_pre_request\n", rc));
         netsnmp_request_set_error_all(requests, SNMP_VALIDATE_ERR(rc));
     }
-    
+
     return SNMP_ERR_NOERROR;
 } /* _mfd_rdbmsDbTable_pre_request */
 
@@ -479,7 +479,7 @@ _mfd_rdbmsDbTable_post_request(netsnmp_mib_handler *handler,
         DEBUGMSGTL(("internal:rdbmsDbTable","error %d from "
                     "rdbmsDbTable_post_request\n", rc));
     }
-    
+
     /*
      * if there are no errors, check for and handle row creation/deletion
      */
@@ -512,7 +512,7 @@ _mfd_rdbmsDbTable_object_lookup(netsnmp_mib_handler *handler,
 {
     rdbmsDbTable_rowreq_ctx *rowreq_ctx =
                   netsnmp_container_table_row_extract(requests);
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_object_lookup","called\n"));
 
     /*
@@ -545,7 +545,7 @@ _rdbmsDbTable_get_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx,
                        netsnmp_variable_list *var, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_get_column","called\n"));
 
 
@@ -601,7 +601,7 @@ _mfd_rdbmsDbTable_get_values(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_get_values","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     for(;requests; requests = requests->next) {
         /*
          * save old pointer, so we can free it if replaced
@@ -623,7 +623,7 @@ _mfd_rdbmsDbTable_get_values(netsnmp_mib_handler *handler,
         tri = netsnmp_extract_table_info(requests);
         if(NULL == tri)
             continue;
-        
+
         rc = _rdbmsDbTable_get_column(rowreq_ctx, requests->requestvb, tri->colnum);
         if(rc) {
             if(MFD_SKIP == rc) {
@@ -675,7 +675,7 @@ _rdbmsDbTable_check_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx,
                          netsnmp_variable_list *var, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_rdbmsDbTable_check_column","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
@@ -726,7 +726,7 @@ _mfd_rdbmsDbTable_check_objects(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_check_objects","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     for(;requests; requests = requests->next) {
 
         /*
@@ -794,7 +794,7 @@ NETSNMP_STATIC_INLINE int
 _rdbmsDbTable_undo_setup_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_rdbmsDbTable_undo_setup_column","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
@@ -866,7 +866,7 @@ _mfd_rdbmsDbTable_undo_setup(netsnmp_mib_handler *handler,
             tri = netsnmp_extract_table_info(requests);
             if(NULL == tri)
                 continue;
-            
+
             rc = _rdbmsDbTable_undo_setup_column(rowreq_ctx, tri->colnum);
             if(MFD_SUCCESS != rc)  {
                 DEBUGMSGTL(("verbose:rdbmsDbTable:mfd","error %d from "
@@ -875,7 +875,7 @@ _mfd_rdbmsDbTable_undo_setup(netsnmp_mib_handler *handler,
             }
         } /* for results */
     }
-    
+
     return SNMP_ERR_NOERROR;
 } /* _mfd_rdbmsDbTable_undo_setup */
 
@@ -943,7 +943,7 @@ _rdbmsDbTable_set_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx,
                        netsnmp_variable_list *var, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_rdbmsDbTable_set_column","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
@@ -960,7 +960,7 @@ _rdbmsDbTable_set_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx,
          snmp_log(LOG_ERR,"unknown column %d in _rdbmsDbTable_set_column\n", column);
          break;
     }
-    
+
     return rc;
 } /* _rdbmsDbTable_set_column */
 
@@ -978,7 +978,7 @@ _mfd_rdbmsDbTable_set_values(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_set_values","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     rowreq_ctx->column_set_flags = 0;
     for(;requests; requests = requests->next) {
         /*
@@ -987,7 +987,7 @@ _mfd_rdbmsDbTable_set_values(netsnmp_mib_handler *handler,
         tri = netsnmp_extract_table_info(requests);
         if(NULL == tri)
             continue;
-        
+
         rc = _rdbmsDbTable_set_column(rowreq_ctx,
                                     requests->requestvb, tri->colnum);
         if(MFD_SUCCESS != rc)  {
@@ -1022,7 +1022,7 @@ _mfd_rdbmsDbTable_commit(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_commit","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     rc = rdbmsDbTable_commit(rowreq_ctx);
     if (MFD_SUCCESS != rc) {
         DEBUGMSGTL(("verbose:rdbmsDbTable:mfd","error %d from "
@@ -1073,7 +1073,7 @@ _rdbmsDbTable_undo_column( rdbmsDbTable_rowreq_ctx *rowreq_ctx,
                        netsnmp_variable_list *var, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:_rdbmsDbTable_undo_column","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
@@ -1107,7 +1107,7 @@ _mfd_rdbmsDbTable_undo_values(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsDbTable:_mfd_rdbmsDbTable_undo_values","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     for(;requests; requests = requests->next) {
         /*
          * set column data
@@ -1115,7 +1115,7 @@ _mfd_rdbmsDbTable_undo_values(netsnmp_mib_handler *handler,
         tri = netsnmp_extract_table_info(requests);
         if(NULL == tri)
             continue;
-        
+
         rc = _rdbmsDbTable_undo_column(rowreq_ctx, requests->requestvb,
                                      tri->colnum);
         if (MFD_SUCCESS != rc) {
@@ -1150,7 +1150,7 @@ _cache_load(netsnmp_cache *cache, void *vmagic)
 
     /** should only be called for an invalid or expired cache */
     netsnmp_assert((0 == cache->valid) || (1 == cache->expired));
-    
+
     /*
      * call user code
      */
@@ -1192,7 +1192,7 @@ _cache_free(netsnmp_cache *cache, void *magic)
      * call user code
      */
     rdbmsDbTable_cache_free(container);
-    
+
     /*
      * free all items. inefficient, but easy.
      */
@@ -1209,7 +1209,7 @@ void
 _rdbmsDbTable_container_init(rdbmsDbTable_interface_ctx *if_ctx)
 {
     DEBUGMSGTL(("internal:rdbmsDbTable:_rdbmsDbTable_container_init","called\n"));
-    
+
     /*
      * set up the cache
      */

@@ -103,9 +103,9 @@ rdbmsDbLimitedResourceName_map(char **mib_rdbmsDbLimitedResourceName_val_ptr_ptr
 
     netsnmp_assert(NULL != raw_rdbmsDbLimitedResourceName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbLimitedResourceName_val_ptr_ptr) && (NULL != mib_rdbmsDbLimitedResourceName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbLimitedResourceName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -156,7 +156,7 @@ rdbmsDbLimitedResourceTable_indexes_set_tbl_idx(rdbmsDbLimitedResourceTable_mib_
 
     /* rdbmsDbIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbIndex = rdbmsDbIndex_val;
-    
+
     /* rdbmsDbLimitedResourceName(1)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H */
      tbl_idx->rdbmsDbLimitedResourceName_len = sizeof(tbl_idx->rdbmsDbLimitedResourceName);
     /*
@@ -169,7 +169,7 @@ rdbmsDbLimitedResourceTable_indexes_set_tbl_idx(rdbmsDbLimitedResourceTable_mib_
     }
     tbl_idx->rdbmsDbLimitedResourceName_len = rdbmsDbLimitedResourceName_val_ptr_len * sizeof(tbl_idx->rdbmsDbLimitedResourceName[0]);
     memcpy( tbl_idx->rdbmsDbLimitedResourceName, rdbmsDbLimitedResourceName_val_ptr, tbl_idx->rdbmsDbLimitedResourceName_len );
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsDbLimitedResourceTable_indexes_set_tbl_idx */
@@ -258,9 +258,9 @@ rdbmsDbLimitedResourceID_map(oid **mib_rdbmsDbLimitedResourceID_val_ptr_ptr, siz
 
     netsnmp_assert(NULL != raw_rdbmsDbLimitedResourceID_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbLimitedResourceID_val_ptr_ptr) && (NULL != mib_rdbmsDbLimitedResourceID_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceID_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbLimitedResourceID non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -399,9 +399,9 @@ int
 rdbmsDbLimitedResourceLimit_map(long *mib_rdbmsDbLimitedResourceLimit_val_ptr, long raw_rdbmsDbLimitedResourceLimit_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbLimitedResourceLimit_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceLimit_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbLimitedResourceLimit mapping.
      * If the values for your data type don't exactly match the
@@ -486,9 +486,9 @@ int
 rdbmsDbLimitedResourceCurrent_map(long *mib_rdbmsDbLimitedResourceCurrent_val_ptr, long raw_rdbmsDbLimitedResourceCurrent_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbLimitedResourceCurrent_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceCurrent_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbLimitedResourceCurrent mapping.
      * If the values for your data type don't exactly match the
@@ -579,9 +579,9 @@ int
 rdbmsDbLimitedResourceHighwater_map(long *mib_rdbmsDbLimitedResourceHighwater_val_ptr, long raw_rdbmsDbLimitedResourceHighwater_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbLimitedResourceHighwater_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceHighwater_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbLimitedResourceHighwater mapping.
      * If the values for your data type don't exactly match the
@@ -671,9 +671,9 @@ int
 rdbmsDbLimitedResourceFailures_map(u_long *mib_rdbmsDbLimitedResourceFailures_val_ptr, u_long raw_rdbmsDbLimitedResourceFailures_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbLimitedResourceFailures_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceFailures_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbLimitedResourceFailures mapping.
      * If the values for your data type don't exactly match the
@@ -767,9 +767,9 @@ rdbmsDbLimitedResourceDescription_map(char **mib_rdbmsDbLimitedResourceDescripti
 
     netsnmp_assert(NULL != raw_rdbmsDbLimitedResourceDescription_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbLimitedResourceDescription_val_ptr_ptr) && (NULL != mib_rdbmsDbLimitedResourceDescription_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceDescription_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbLimitedResourceDescription non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple

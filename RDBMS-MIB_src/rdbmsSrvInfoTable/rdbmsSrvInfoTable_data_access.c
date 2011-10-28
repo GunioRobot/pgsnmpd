@@ -23,7 +23,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -100,7 +100,7 @@ rdbmsSrvInfoTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsSrvInfoTable_container_init\n");
         return;
@@ -160,7 +160,7 @@ rdbmsSrvInfoTable_cache_load(netsnmp_container *container)
     size_t                 count = 0;
     PGresult *pg_db_qry;
     static int maxAssociations = 0;
-    
+
    long   applIndex;
    int resultCount, tmpInt, rdbmsSrvInfoMaxInboundAssociations = 0, i, errorCode = MFD_SUCCESS;
 
@@ -168,11 +168,11 @@ rdbmsSrvInfoTable_cache_load(netsnmp_container *container)
 
     if (PQstatus(dbconn) == CONNECTION_OK) {
 	    pg_db_qry = PQexec(dbconn, "SELECT setting FROM pg_settings WHERE name = 'max_connections'");
-	    if (PQresultStatus(pg_db_qry) == PGRES_TUPLES_OK) 
+	    if (PQresultStatus(pg_db_qry) == PGRES_TUPLES_OK)
 		    rdbmsSrvInfoMaxInboundAssociations = atoi(PQgetvalue(pg_db_qry, 0, 0));
 	    PQclear(pg_db_qry);
 	    pg_db_qry = PQexec(dbconn, "SELECT setting FROM pg_settings WHERE name = 'superuser_reserved_connections'");
-	    if (PQresultStatus(pg_db_qry) == PGRES_TUPLES_OK) 
+	    if (PQresultStatus(pg_db_qry) == PGRES_TUPLES_OK)
 		    rdbmsSrvInfoMaxInboundAssociations -= atoi(PQgetvalue(pg_db_qry, 0, 0));
 	    PQclear(pg_db_qry);
 	    pg_db_qry = PQexec(dbconn, "SELECT count(1) FROM pg_stat_activity");
@@ -238,38 +238,38 @@ rdbmsSrvInfoTable_cache_load(netsnmp_container *container)
 	tmpInt = rowreq_ctx->data.startupUtcOffsetHours * 60 + rowreq_ctx->data.startupUtcOffsetMinutes;
 	if (tmpInt == 0)
 		rowreq_ctx->data.startupUtcOffsetDirection = 0;
-	else 
+	else
 		rowreq_ctx->data.startupUtcOffsetDirection = (tmpInt > 0 ? 1 : -1);
-    
+
     rowreq_ctx->data.rdbmsSrvInfoFinishedTransactions = atoi(PQgetvalue(pg_db_qry, i, 10));
-    
+
     rowreq_ctx->data.rdbmsSrvInfoDiskReads = atoi(PQgetvalue(pg_db_qry, i, 11));
-    
+
     rowreq_ctx->data.rdbmsSrvInfoLogicalReads = atoi(PQgetvalue(pg_db_qry, i, 12));
-    
+
     /* Skip this unless someone comes up with a way to get these data */
     /*rowreq_ctx->data.rdbmsSrvInfoDiskWrites = rdbmsSrvInfoDiskWrites;
 
     rowreq_ctx->data.rdbmsSrvInfoLogicalWrites = rdbmsSrvInfoLogicalWrites;  */
-    
+
     rowreq_ctx->data.rdbmsSrvInfoPageReads = rowreq_ctx->data.rdbmsSrvInfoDiskReads;
-    
+
     /*rowreq_ctx->data.rdbmsSrvInfoPageWrites = rdbmsSrvInfoPageWrites; */
-    
+
     /* pgsql will have a fatal error if this happens, so the value must be 0 if we're connected to a db server */
-    rowreq_ctx->data.rdbmsSrvInfoDiskOutOfSpaces = 0; 
-    
+    rowreq_ctx->data.rdbmsSrvInfoDiskOutOfSpaces = 0;
+
     /* rowreq_ctx->data.rdbmsSrvInfoHandledRequests = rdbmsSrvInfoHandledRequests;
-    
+
     rowreq_ctx->data.rdbmsSrvInfoRequestRecvs = rdbmsSrvInfoRequestRecvs;
-    
+
     rowreq_ctx->data.rdbmsSrvInfoRequestSends = rdbmsSrvInfoRequestSends; */
-    
-    rowreq_ctx->data.rdbmsSrvInfoHighwaterInboundAssociations = maxAssociations; 
-    
+
+    rowreq_ctx->data.rdbmsSrvInfoHighwaterInboundAssociations = maxAssociations;
+
     rowreq_ctx->data.rdbmsSrvInfoMaxInboundAssociations = rdbmsSrvInfoMaxInboundAssociations;
-    
-        
+
+
         /*
          * insert into table container
          */

@@ -65,7 +65,7 @@ rdbmsSrvInfoTable_indexes_set_tbl_idx(rdbmsSrvInfoTable_mib_index *tbl_idx, long
 
     /* applIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->applIndex = applIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsSrvInfoTable_indexes_set_tbl_idx */
@@ -151,9 +151,9 @@ rdbmsSrvInfoStartupTime_map(char **mib_rdbmsSrvInfoStartupTime_val_ptr_ptr, size
 
     netsnmp_assert(NULL != raw_rdbmsSrvInfoStartupTime_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsSrvInfoStartupTime_val_ptr_ptr) && (NULL != mib_rdbmsSrvInfoStartupTime_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoStartupTime_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsSrvInfoStartupTime non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -280,9 +280,9 @@ int
 rdbmsSrvInfoFinishedTransactions_map(u_long *mib_rdbmsSrvInfoFinishedTransactions_val_ptr, u_long raw_rdbmsSrvInfoFinishedTransactions_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoFinishedTransactions_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoFinishedTransactions_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoFinishedTransactions mapping.
      * If the values for your data type don't exactly match the
@@ -369,9 +369,9 @@ int
 rdbmsSrvInfoDiskReads_map(u_long *mib_rdbmsSrvInfoDiskReads_val_ptr, u_long raw_rdbmsSrvInfoDiskReads_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoDiskReads_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoDiskReads_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoDiskReads mapping.
      * If the values for your data type don't exactly match the
@@ -460,9 +460,9 @@ int
 rdbmsSrvInfoLogicalReads_map(u_long *mib_rdbmsSrvInfoLogicalReads_val_ptr, u_long raw_rdbmsSrvInfoLogicalReads_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoLogicalReads_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoLogicalReads_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoLogicalReads mapping.
      * If the values for your data type don't exactly match the
@@ -548,9 +548,9 @@ int
 rdbmsSrvInfoDiskWrites_map(u_long *mib_rdbmsSrvInfoDiskWrites_val_ptr, u_long raw_rdbmsSrvInfoDiskWrites_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoDiskWrites_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoDiskWrites_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoDiskWrites mapping.
      * If the values for your data type don't exactly match the
@@ -643,9 +643,9 @@ int
 rdbmsSrvInfoLogicalWrites_map(u_long *mib_rdbmsSrvInfoLogicalWrites_val_ptr, u_long raw_rdbmsSrvInfoLogicalWrites_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoLogicalWrites_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoLogicalWrites_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoLogicalWrites mapping.
      * If the values for your data type don't exactly match the
@@ -735,9 +735,9 @@ int
 rdbmsSrvInfoPageReads_map(u_long *mib_rdbmsSrvInfoPageReads_val_ptr, u_long raw_rdbmsSrvInfoPageReads_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoPageReads_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoPageReads_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoPageReads mapping.
      * If the values for your data type don't exactly match the
@@ -825,9 +825,9 @@ int
 rdbmsSrvInfoPageWrites_map(u_long *mib_rdbmsSrvInfoPageWrites_val_ptr, u_long raw_rdbmsSrvInfoPageWrites_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoPageWrites_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoPageWrites_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoPageWrites mapping.
      * If the values for your data type don't exactly match the
@@ -915,9 +915,9 @@ int
 rdbmsSrvInfoDiskOutOfSpaces_map(u_long *mib_rdbmsSrvInfoDiskOutOfSpaces_val_ptr, u_long raw_rdbmsSrvInfoDiskOutOfSpaces_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoDiskOutOfSpaces_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoDiskOutOfSpaces_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoDiskOutOfSpaces mapping.
      * If the values for your data type don't exactly match the
@@ -1010,9 +1010,9 @@ int
 rdbmsSrvInfoHandledRequests_map(u_long *mib_rdbmsSrvInfoHandledRequests_val_ptr, u_long raw_rdbmsSrvInfoHandledRequests_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoHandledRequests_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoHandledRequests_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoHandledRequests mapping.
      * If the values for your data type don't exactly match the
@@ -1105,9 +1105,9 @@ int
 rdbmsSrvInfoRequestRecvs_map(u_long *mib_rdbmsSrvInfoRequestRecvs_val_ptr, u_long raw_rdbmsSrvInfoRequestRecvs_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoRequestRecvs_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoRequestRecvs_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoRequestRecvs mapping.
      * If the values for your data type don't exactly match the
@@ -1199,9 +1199,9 @@ int
 rdbmsSrvInfoRequestSends_map(u_long *mib_rdbmsSrvInfoRequestSends_val_ptr, u_long raw_rdbmsSrvInfoRequestSends_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoRequestSends_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoRequestSends_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoRequestSends mapping.
      * If the values for your data type don't exactly match the
@@ -1286,9 +1286,9 @@ int
 rdbmsSrvInfoHighwaterInboundAssociations_map(u_long *mib_rdbmsSrvInfoHighwaterInboundAssociations_val_ptr, u_long raw_rdbmsSrvInfoHighwaterInboundAssociations_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoHighwaterInboundAssociations_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoHighwaterInboundAssociations_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoHighwaterInboundAssociations mapping.
      * If the values for your data type don't exactly match the
@@ -1377,9 +1377,9 @@ int
 rdbmsSrvInfoMaxInboundAssociations_map(u_long *mib_rdbmsSrvInfoMaxInboundAssociations_val_ptr, u_long raw_rdbmsSrvInfoMaxInboundAssociations_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvInfoMaxInboundAssociations_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvInfoTable:rdbmsSrvInfoMaxInboundAssociations_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvInfoMaxInboundAssociations mapping.
      * If the values for your data type don't exactly match the

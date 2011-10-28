@@ -103,9 +103,9 @@ rdbmsSrvParamName_map(char **mib_rdbmsSrvParamName_val_ptr_ptr, size_t *mib_rdbm
 
     netsnmp_assert(NULL != raw_rdbmsSrvParamName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsSrvParamName_val_ptr_ptr) && (NULL != mib_rdbmsSrvParamName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsSrvParamName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -191,9 +191,9 @@ int
 rdbmsSrvParamSubIndex_map(long *mib_rdbmsSrvParamSubIndex_val_ptr, long raw_rdbmsSrvParamSubIndex_val)
 {
     netsnmp_assert(NULL != mib_rdbmsSrvParamSubIndex_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamSubIndex_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsSrvParamSubIndex mapping.
      * If the values for your data type don't exactly match the
@@ -225,7 +225,7 @@ rdbmsSrvParamTable_indexes_set_tbl_idx(rdbmsSrvParamTable_mib_index *tbl_idx, lo
 
     /* applIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->applIndex = applIndex_val;
-    
+
     /* rdbmsSrvParamName(1)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H */
      tbl_idx->rdbmsSrvParamName_len = sizeof(tbl_idx->rdbmsSrvParamName);
     /*
@@ -238,10 +238,10 @@ rdbmsSrvParamTable_indexes_set_tbl_idx(rdbmsSrvParamTable_mib_index *tbl_idx, lo
     }
     tbl_idx->rdbmsSrvParamName_len = rdbmsSrvParamName_val_ptr_len * sizeof(tbl_idx->rdbmsSrvParamName[0]);
     memcpy( tbl_idx->rdbmsSrvParamName, rdbmsSrvParamName_val_ptr, tbl_idx->rdbmsSrvParamName_len );
-    
+
     /* rdbmsSrvParamSubIndex(2)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsSrvParamSubIndex = rdbmsSrvParamSubIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsSrvParamTable_indexes_set_tbl_idx */
@@ -330,9 +330,9 @@ rdbmsSrvParamID_map(oid **mib_rdbmsSrvParamID_val_ptr_ptr, size_t *mib_rdbmsSrvP
 
     netsnmp_assert(NULL != raw_rdbmsSrvParamID_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsSrvParamID_val_ptr_ptr) && (NULL != mib_rdbmsSrvParamID_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamID_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsSrvParamID non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -479,9 +479,9 @@ rdbmsSrvParamCurrValue_map(char **mib_rdbmsSrvParamCurrValue_val_ptr_ptr, size_t
 
     netsnmp_assert(NULL != raw_rdbmsSrvParamCurrValue_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsSrvParamCurrValue_val_ptr_ptr) && (NULL != mib_rdbmsSrvParamCurrValue_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamCurrValue_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsSrvParamCurrValue non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -625,9 +625,9 @@ rdbmsSrvParamComment_map(char **mib_rdbmsSrvParamComment_val_ptr_ptr, size_t *mi
 
     netsnmp_assert(NULL != raw_rdbmsSrvParamComment_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsSrvParamComment_val_ptr_ptr) && (NULL != mib_rdbmsSrvParamComment_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamComment_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsSrvParamComment non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple

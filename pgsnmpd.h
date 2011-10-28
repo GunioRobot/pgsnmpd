@@ -22,8 +22,8 @@
 #include "libpq-fe.h"
 
 /* snmp include files expose the autoconf variables about the package, and
- * so does the pg includes. Oops. 
- */ 
+ * so does the pg includes. Oops.
+ */
 #ifdef PACKAGE_BUGREPORT
 #undef PACKAGE_BUGREPORT
 #endif

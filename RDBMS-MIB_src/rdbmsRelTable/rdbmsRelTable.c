@@ -40,7 +40,7 @@ init_rdbmsRelTable(void)
     /*
      * TODO:300:o: Perform rdbmsRelTable one-time module initialization.
      */
-     
+
     /*
      * here we initialize all the tables we're planning on supporting
      */
@@ -50,7 +50,7 @@ init_rdbmsRelTable(void)
 } /* init_rdbmsRelTable */
 
 /**
- * Initialize the table rdbmsRelTable 
+ * Initialize the table rdbmsRelTable
  *    (Define its contents and how it's structured)
  */
 void
@@ -75,13 +75,13 @@ initialize_table_rdbmsRelTable(void)
      * string token is used to add, find or remove pointers.
      */
     user_context = netsnmp_create_data_list("rdbmsRelTable", NULL, NULL);
-    
+
     /*
      * No support for any flags yet, but in the future you would
      * set any flags here.
      */
     flags = 0;
-    
+
     /*
      * call interface initialization code
      */

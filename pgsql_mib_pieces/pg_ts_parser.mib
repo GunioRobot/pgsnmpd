@@ -36,7 +36,7 @@ pgsqlPgTsParserEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsParserEntry 1 }
 
 pgsqlPgTsParserPrsname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION

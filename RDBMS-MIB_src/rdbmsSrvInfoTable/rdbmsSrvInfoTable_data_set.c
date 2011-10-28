@@ -24,7 +24,7 @@
  *
  * These routines are used to set the value for individual objects. The
  * row context is passed, along with the new value.
- * 
+ *
  * @{
  */
 /** @} */

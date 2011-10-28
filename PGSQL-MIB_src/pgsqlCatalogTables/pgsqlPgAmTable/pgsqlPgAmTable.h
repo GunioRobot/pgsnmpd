@@ -74,123 +74,123 @@ typedef netsnmp_data_list * pgsqlPgAmTable_registration_ptr;
  * pgsqlPgAmTable.
  */
 typedef struct pgsqlPgAmTable_data_s {
-    
+
         /*
          * pgsqlPgAmAmname(2)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   pgsqlPgAmAmname[255];
 size_t      pgsqlPgAmAmname_len; /* # of char elements, not bytes */
-    
+
         /*
          * pgsqlPgAmAmstrategies(3)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmstrategies;
-    
+
         /*
          * pgsqlPgAmAmsupport(4)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmsupport;
-    
+
         /*
          * pgsqlPgAmAmorderstrategy(5)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmorderstrategy;
-    
+
         /*
          * pgsqlPgAmAmcanunique(6)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmcanunique;
-    
+
         /*
          * pgsqlPgAmAmcanmulticol(7)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmcanmulticol;
-    
+
         /*
          * pgsqlPgAmAmoptionalkey(8)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmoptionalkey;
-    
+
         /*
          * pgsqlPgAmAmindexnulls(9)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmindexnulls;
-    
+
         /*
          * pgsqlPgAmAmstorage(10)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmstorage;
-    
+
         /*
          * pgsqlPgAmAmclusterable(11)/TruthValue/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   pgsqlPgAmAmclusterable;
-    
+
         /*
          * pgsqlPgAmAminsert(12)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAminsert;
-    
+
         /*
          * pgsqlPgAmAmbeginscan(13)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmbeginscan;
-    
+
         /*
          * pgsqlPgAmAmgettuple(14)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmgettuple;
-    
+
         /*
          * pgsqlPgAmAmgetmulti(15)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmgetmulti;
-    
+
         /*
          * pgsqlPgAmAmrescan(16)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmrescan;
-    
+
         /*
          * pgsqlPgAmAmendscan(17)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmendscan;
-    
+
         /*
          * pgsqlPgAmAmmarkpos(18)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmmarkpos;
-    
+
         /*
          * pgsqlPgAmAmrestrpos(19)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmrestrpos;
-    
+
         /*
          * pgsqlPgAmAmbuild(20)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmbuild;
-    
+
         /*
          * pgsqlPgAmAmbulkdelete(21)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmbulkdelete;
-    
+
         /*
          * pgsqlPgAmAmvacuumcleanup(22)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmvacuumcleanup;
-    
+
         /*
          * pgsqlPgAmAmcostestimate(23)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmcostestimate;
-    
+
         /*
          * pgsqlPgAmAmoptions(24)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAmAmoptions;
-    
+
 } pgsqlPgAmTable_data;
 
 
@@ -242,9 +242,9 @@ typedef struct pgsqlPgAmTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_pgsqlPgAmTable_IDX_LEN];
-    
+
     pgsqlPgAmTable_mib_index        tbl_idx;
-    
+
     pgsqlPgAmTable_data              data;
 
     /*
@@ -261,7 +261,7 @@ typedef struct pgsqlPgAmTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to pgsqlPgAmTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

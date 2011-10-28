@@ -53,7 +53,7 @@ OPTIONS
 	-p	Port of the server to test; defaults to 5432. If the -h para-
 		meter begins with a slash, this will be interpreted as the
 		filename of the Unix domain socket
-	
+
 	-d	Name of the database to create; defaults to pgsnmpd_regress
 
 	-c	Path to createdb, if required
@@ -102,7 +102,7 @@ sub TesterProc() {
 	# Get Database OID (rdbmsDbIndex value for this database from rdbmsDbTable)
 	foreach my $key (keys %{$rdbmsDbTable}) {
 		$tmp = $rdbmsDbTable->{$key};
-		if ($tmp->{'rdbmsDbName'} eq $dbname) { 
+		if ($tmp->{'rdbmsDbName'} eq $dbname) {
 			$dbOID = $key;
 			last;
 		}

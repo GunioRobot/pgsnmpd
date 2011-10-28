@@ -35,7 +35,7 @@ typedef struct rdbmsSrvTable_interface_ctx_s {
    netsnmp_cache                  *cache; /* optional cache */
 
    rdbmsSrvTable_registration_ptr      user_ctx;
-   
+
    netsnmp_table_registration_info  tbl_info;
 
    netsnmp_baby_steps_access_methods access_multiplexer;
@@ -54,7 +54,7 @@ static Netsnmp_Node_Handler _mfd_rdbmsSrvTable_object_lookup;
 static Netsnmp_Node_Handler _mfd_rdbmsSrvTable_get_values;
 /**
  * @internal
- * Initialize the table rdbmsSrvTable 
+ * Initialize the table rdbmsSrvTable
  *    (Define its contents and how it's structured)
  */
 void
@@ -104,7 +104,7 @@ _rdbmsSrvTable_initialize_interface(rdbmsSrvTable_registration_ptr reg_ptr,  u_l
         snmp_log(LOG_ERR,"could not initialize container for rdbmsSrvTable\n");
         return;
     }
-    
+
     /*
      * access_multiplexer: REQUIRED wrapper for get request handling
      */
@@ -123,7 +123,7 @@ _rdbmsSrvTable_initialize_interface(rdbmsSrvTable_registration_ptr reg_ptr,  u_l
      * Create a registration, save our reg data, register table.
      */
     DEBUGMSGTL(("rdbmsSrvTable:init_rdbmsSrvTable",
-                "Registering rdbmsSrvTable as a mibs-for-dummies table.\n"));		 
+                "Registering rdbmsSrvTable as a mibs-for-dummies table.\n"));
     handler = netsnmp_baby_steps_access_multiplexer_get(access_multiplexer);
     reginfo = netsnmp_handler_registration_create("rdbmsSrvTable", handler,
                                                   rdbmsSrvTable_oid,
@@ -154,14 +154,14 @@ _rdbmsSrvTable_initialize_interface(rdbmsSrvTable_registration_ptr reg_ptr,  u_l
         mfd_modes |= BABY_STEP_PRE_REQUEST;
     if( access_multiplexer->post_request )
         mfd_modes |= BABY_STEP_POST_REQUEST;
-    
+
     if( access_multiplexer->undo_setup )
         mfd_modes |= BABY_STEP_UNDO_SETUP;
     if( access_multiplexer->undo_cleanup )
         mfd_modes |= BABY_STEP_UNDO_CLEANUP;
     if( access_multiplexer->undo_sets )
         mfd_modes |= BABY_STEP_UNDO_SETS;
-    
+
     if( access_multiplexer->row_creation )
         mfd_modes |= BABY_STEP_ROW_CREATE;
     if( access_multiplexer->consistency_checks )
@@ -170,7 +170,7 @@ _rdbmsSrvTable_initialize_interface(rdbmsSrvTable_registration_ptr reg_ptr,  u_l
         mfd_modes |= BABY_STEP_COMMIT;
     if( access_multiplexer->undo_commit )
         mfd_modes |= BABY_STEP_UNDO_COMMIT;
-    
+
     handler = netsnmp_baby_steps_handler_get(mfd_modes);
     netsnmp_inject_handler(reginfo, handler);
 
@@ -221,7 +221,7 @@ rdbmsSrvTable_index_to_oid(netsnmp_index *oid_idx,
                          rdbmsSrvTable_mib_index *mib_idx)
 {
     int err = SNMP_ERR_NOERROR;
-    
+
     /*
      * temp storage for parsing indexes
      */
@@ -273,7 +273,7 @@ rdbmsSrvTable_index_from_oid(netsnmp_index *oid_idx,
                          rdbmsSrvTable_mib_index *mib_idx)
 {
     int err = SNMP_ERR_NOERROR;
-    
+
     /*
      * temp storage for parsing indexes
      */
@@ -355,7 +355,7 @@ rdbmsSrvTable_release_rowreq_ctx(rdbmsSrvTable_rowreq_ctx *rowreq_ctx)
     DEBUGMSGTL(("internal:rdbmsSrvTable:rdbmsSrvTable_release_rowreq_ctx","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
 
     /*
      * free index oid pointer
@@ -385,7 +385,7 @@ _mfd_rdbmsSrvTable_pre_request(netsnmp_mib_handler *handler,
                     "rdbmsSrvTable_pre_request\n", rc));
         netsnmp_request_set_error_all(requests, SNMP_VALIDATE_ERR(rc));
     }
-    
+
     return SNMP_ERR_NOERROR;
 } /* _mfd_rdbmsSrvTable_pre_request */
 
@@ -408,7 +408,7 @@ _mfd_rdbmsSrvTable_post_request(netsnmp_mib_handler *handler,
         DEBUGMSGTL(("internal:rdbmsSrvTable","error %d from "
                     "rdbmsSrvTable_post_request\n", rc));
     }
-    
+
     /*
      * if there are no errors, check for and handle row creation/deletion
      */
@@ -441,7 +441,7 @@ _mfd_rdbmsSrvTable_object_lookup(netsnmp_mib_handler *handler,
 {
     rdbmsSrvTable_rowreq_ctx *rowreq_ctx =
                   netsnmp_container_table_row_extract(requests);
-    
+
     DEBUGMSGTL(("internal:rdbmsSrvTable:_mfd_rdbmsSrvTable_object_lookup","called\n"));
 
     /*
@@ -474,7 +474,7 @@ _rdbmsSrvTable_get_column( rdbmsSrvTable_rowreq_ctx *rowreq_ctx,
                        netsnmp_variable_list *var, int column )
 {
     int rc = SNMPERR_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsSrvTable:_mfd_rdbmsSrvTable_get_column","called\n"));
 
 
@@ -530,7 +530,7 @@ _mfd_rdbmsSrvTable_get_values(netsnmp_mib_handler *handler,
     DEBUGMSGTL(("internal:rdbmsSrvTable:_mfd_rdbmsSrvTable_get_values","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);
-    
+
     for(;requests; requests = requests->next) {
         /*
          * save old pointer, so we can free it if replaced
@@ -552,7 +552,7 @@ _mfd_rdbmsSrvTable_get_values(netsnmp_mib_handler *handler,
         tri = netsnmp_extract_table_info(requests);
         if(NULL == tri)
             continue;
-        
+
         rc = _rdbmsSrvTable_get_column(rowreq_ctx, requests->requestvb, tri->colnum);
         if(rc) {
             if(MFD_SKIP == rc) {
@@ -613,7 +613,7 @@ _cache_load(netsnmp_cache *cache, void *vmagic)
 
     /** should only be called for an invalid or expired cache */
     netsnmp_assert((0 == cache->valid) || (1 == cache->expired));
-    
+
     /*
      * call user code
      */
@@ -655,7 +655,7 @@ _cache_free(netsnmp_cache *cache, void *magic)
      * call user code
      */
     rdbmsSrvTable_cache_free(container);
-    
+
     /*
      * free all items. inefficient, but easy.
      */
@@ -672,7 +672,7 @@ void
 _rdbmsSrvTable_container_init(rdbmsSrvTable_interface_ctx *if_ctx)
 {
     DEBUGMSGTL(("internal:rdbmsSrvTable:_rdbmsSrvTable_container_init","called\n"));
-    
+
     /*
      * set up the cache
      */

@@ -81,7 +81,7 @@ typedef netsnmp_data_list * rdbmsSrvInfoTable_registration_ptr;
  * rdbmsSrvInfoTable.
  */
 typedef struct rdbmsSrvInfoTable_data_s {
-    
+
         /*
          * rdbmsSrvInfoStartupTime(1)/DateAndTime/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
@@ -102,67 +102,67 @@ size_t      rdbmsSrvInfoStartupTime_len; *//* # of char elements, not bytes */
          * rdbmsSrvInfoFinishedTransactions(2)/GAUGE/ASN_GAUGE/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoFinishedTransactions;
-    
+
         /*
          * rdbmsSrvInfoDiskReads(3)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoDiskReads;
-    
+
         /*
          * rdbmsSrvInfoLogicalReads(4)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoLogicalReads;
-    
+
         /*
          * rdbmsSrvInfoDiskWrites(5)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoDiskWrites;
-    
+
         /*
          * rdbmsSrvInfoLogicalWrites(6)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoLogicalWrites;
-    
+
         /*
          * rdbmsSrvInfoPageReads(7)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoPageReads;
-    
+
         /*
          * rdbmsSrvInfoPageWrites(8)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoPageWrites;
-    
+
         /*
          * rdbmsSrvInfoDiskOutOfSpaces(9)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoDiskOutOfSpaces;
-    
+
         /*
          * rdbmsSrvInfoHandledRequests(10)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoHandledRequests;
-    
+
         /*
          * rdbmsSrvInfoRequestRecvs(11)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoRequestRecvs;
-    
+
         /*
          * rdbmsSrvInfoRequestSends(12)/COUNTER/ASN_COUNTER/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoRequestSends;
-    
+
         /*
          * rdbmsSrvInfoHighwaterInboundAssociations(13)/GAUGE/ASN_GAUGE/u_long(u_long)//l/A/w/e/r/d/h
          */
    u_long   rdbmsSrvInfoHighwaterInboundAssociations;
-    
+
         /*
          * rdbmsSrvInfoMaxInboundAssociations(14)/GAUGE/ASN_GAUGE/u_long(u_long)//l/A/W/e/r/d/h
          */
    u_long   rdbmsSrvInfoMaxInboundAssociations;
-    
+
 } rdbmsSrvInfoTable_data;
 
 
@@ -198,9 +198,9 @@ typedef struct rdbmsSrvInfoTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsSrvInfoTable_IDX_LEN];
-    
+
     rdbmsSrvInfoTable_mib_index        tbl_idx;
-    
+
     rdbmsSrvInfoTable_data              data;
 
     /*
@@ -217,7 +217,7 @@ typedef struct rdbmsSrvInfoTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsSrvInfoTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

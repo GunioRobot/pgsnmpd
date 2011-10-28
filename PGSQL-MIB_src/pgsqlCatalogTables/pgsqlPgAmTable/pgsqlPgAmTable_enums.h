@@ -41,8 +41,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -51,8 +51,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmcanunique enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMCANUNIQUE_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMCANUNIQUE_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMCANUNIQUE_TRUE  1
+#define INTERNAL_PGSQLPGAMAMCANUNIQUE_FALSE  2
 
 /*************************************************************
  * constants for enums for the MIB node
@@ -64,8 +64,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -74,8 +74,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmcanmulticol enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMCANMULTICOL_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMCANMULTICOL_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMCANMULTICOL_TRUE  1
+#define INTERNAL_PGSQLPGAMAMCANMULTICOL_FALSE  2
 
 /*************************************************************
  * constants for enums for the MIB node
@@ -87,8 +87,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -97,8 +97,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmoptionalkey enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMOPTIONALKEY_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMOPTIONALKEY_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMOPTIONALKEY_TRUE  1
+#define INTERNAL_PGSQLPGAMAMOPTIONALKEY_FALSE  2
 
 /*************************************************************
  * constants for enums for the MIB node
@@ -110,8 +110,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -120,8 +120,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmindexnulls enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMINDEXNULLS_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMINDEXNULLS_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMINDEXNULLS_TRUE  1
+#define INTERNAL_PGSQLPGAMAMINDEXNULLS_FALSE  2
 
 /*************************************************************
  * constants for enums for the MIB node
@@ -133,8 +133,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -143,8 +143,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmstorage enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMSTORAGE_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMSTORAGE_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMSTORAGE_TRUE  1
+#define INTERNAL_PGSQLPGAMAMSTORAGE_FALSE  2
 
 /*************************************************************
  * constants for enums for the MIB node
@@ -156,8 +156,8 @@ extern "C" {
 #ifndef TRUTHVALUE_ENUMS
 #define TRUTHVALUE_ENUMS
 
-#define TRUTHVALUE_TRUE  1 
-#define TRUTHVALUE_FALSE  2 
+#define TRUTHVALUE_TRUE  1
+#define TRUTHVALUE_FALSE  2
 
 
 #endif /* TRUTHVALUE_ENUMS */
@@ -166,8 +166,8 @@ extern "C" {
      * TODO:140:o: Define interal representation of pgsqlPgAmAmclusterable enums.
      * (used for value mapping; see notes at top of file)
      */
-#define INTERNAL_PGSQLPGAMAMCLUSTERABLE_TRUE  1 
-#define INTERNAL_PGSQLPGAMAMCLUSTERABLE_FALSE  2 
+#define INTERNAL_PGSQLPGAMAMCLUSTERABLE_TRUE  1
+#define INTERNAL_PGSQLPGAMAMCLUSTERABLE_FALSE  2
 
 
 

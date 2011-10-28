@@ -74,38 +74,38 @@ typedef netsnmp_data_list * pgsqlPgAggregateTable_registration_ptr;
  * pgsqlPgAggregateTable.
  */
 typedef struct pgsqlPgAggregateTable_data_s {
-    
+
         /*
          * pgsqlPgAggregateAggfnoid(2)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAggregateAggfnoid;
-    
+
         /*
          * pgsqlPgAggregateAggtransfn(3)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAggregateAggtransfn;
-    
+
         /*
          * pgsqlPgAggregateAggfinalfn(4)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAggregateAggfinalfn;
-    
+
         /*
          * pgsqlPgAggregateAggsortop(5)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAggregateAggsortop;
-    
+
         /*
          * pgsqlPgAggregateAggtranstype(6)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/r/d/h
          */
    long   pgsqlPgAggregateAggtranstype;
-    
+
         /*
          * pgsqlPgAggregateAgginitval(7)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   pgsqlPgAggregateAgginitval[255];
 size_t      pgsqlPgAggregateAgginitval_len; /* # of char elements, not bytes */
-    
+
 } pgsqlPgAggregateTable_data;
 
 
@@ -157,9 +157,9 @@ typedef struct pgsqlPgAggregateTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_pgsqlPgAggregateTable_IDX_LEN];
-    
+
     pgsqlPgAggregateTable_mib_index        tbl_idx;
-    
+
     pgsqlPgAggregateTable_data              data;
 
     /*
@@ -176,7 +176,7 @@ typedef struct pgsqlPgAggregateTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to pgsqlPgAggregateTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

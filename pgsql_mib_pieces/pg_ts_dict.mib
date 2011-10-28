@@ -34,7 +34,7 @@ pgsqlPgTsDictEntryOID			OBJECT-TYPE
 	::= { pgsqlPgTsDictEntry 1 }
 
 pgsqlPgTsDictDictname			OBJECT-TYPE
-	SYNTAX		DisplayString 
+	SYNTAX		DisplayString
 	MAX-ACCESS	read-only
 	STATUS		current
 	DESCRIPTION

@@ -81,25 +81,25 @@ typedef netsnmp_data_list * rdbmsSrvParamTable_registration_ptr;
  * rdbmsSrvParamTable.
  */
 typedef struct rdbmsSrvParamTable_data_s {
-    
+
         /*
          * rdbmsSrvParamID(3)/AutonomousType/ASN_OBJECT_ID/oid(oid)//L/A/w/e/r/d/h
          */
    oid   rdbmsSrvParamID[128];
 size_t      rdbmsSrvParamID_len; /* # of oid elements, not bytes */
-    
+
         /*
          * rdbmsSrvParamCurrValue(4)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
          */
    char   rdbmsSrvParamCurrValue[255];
 size_t      rdbmsSrvParamCurrValue_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsSrvParamComment(5)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
          */
    char   rdbmsSrvParamComment[255];
 size_t      rdbmsSrvParamComment_len; /* # of char elements, not bytes */
-    
+
 } rdbmsSrvParamTable_data;
 
 
@@ -150,9 +150,9 @@ typedef struct rdbmsSrvParamTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsSrvParamTable_IDX_LEN];
-    
+
     rdbmsSrvParamTable_mib_index        tbl_idx;
-    
+
     rdbmsSrvParamTable_data              data;
 
     /*
@@ -169,7 +169,7 @@ typedef struct rdbmsSrvParamTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsSrvParamTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

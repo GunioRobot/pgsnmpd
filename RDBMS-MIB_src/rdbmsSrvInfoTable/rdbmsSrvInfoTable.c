@@ -37,7 +37,7 @@ init_rdbmsSrvInfoTable(void)
     /*
      * TODO:300:o: Perform rdbmsSrvInfoTable one-time module initialization.
      */
-     
+
     /*
      * here we initialize all the tables we're planning on supporting
      */
@@ -47,7 +47,7 @@ init_rdbmsSrvInfoTable(void)
 } /* init_rdbmsSrvInfoTable */
 
 /**
- * Initialize the table rdbmsSrvInfoTable 
+ * Initialize the table rdbmsSrvInfoTable
  *    (Define its contents and how it's structured)
  */
 void
@@ -72,13 +72,13 @@ initialize_table_rdbmsSrvInfoTable(void)
      * string token is used to add, find or remove pointers.
      */
     user_context = netsnmp_create_data_list("rdbmsSrvInfoTable", NULL, NULL);
-    
+
     /*
      * No support for any flags yet, but in the future you would
      * set any flags here.
      */
     flags = 0;
-    
+
     /*
      * call interface initialization code
      */

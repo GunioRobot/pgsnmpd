@@ -41,7 +41,7 @@
 
 char *pgsnmp_version = PG_VERSION_STR;
 
-/* Official MIB object 
+/* Official MIB object
 http://www.iana.org/assignments/enterprise-numbers
 
 27645
@@ -78,7 +78,7 @@ static PGconn
     }
 
     return dbconn;
-}    
+}
 
 bool IsAlive()
 {
@@ -108,7 +108,7 @@ bool IsAlive()
 }
 
 static void
-stop_server(int signo) 
+stop_server(int signo)
 {
     pgsqlState = keep_running = 0;
     snmp_log(LOG_ERR, "\nExiting on signal %d\n", signo);
@@ -148,14 +148,14 @@ usage(void)
 }
 
 int
-main(int argc, char *argv[]) 
+main(int argc, char *argv[])
 {
     int agentx_subagent=0;    /* SNMP master agent */
     int background = 0;    /* run the background */
     int syslog = 0;        /* use syslog */
 
     int    arg;
-/*    char *set_search_path, *escaped_search_path; 
+/*    char *set_search_path, *escaped_search_path;
     int errorval;*/
 
 #ifdef DEBUG
@@ -224,7 +224,7 @@ main(int argc, char *argv[])
             }
             break;
 /*            default:
-                    usage(); 
+                    usage();
                     exit(1); */
         }
     }
@@ -239,7 +239,7 @@ main(int argc, char *argv[])
             snmp_enable_stderrlog();
 
         if (getuid() !=0)
-              netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID, 
+              netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID,
              NETSNMP_DS_AGENT_NO_ROOT_ACCESS, 1);
 
       if ((dbconn = db_connect(conninfo))) {
@@ -257,13 +257,13 @@ main(int argc, char *argv[])
             /* This initialization is to avoid a compiler warning */
             set_search_path = NULL;
             if (errorval != 0)
-                snmp_log(LOG_ERR, "Could not escape search path string\n"); 
-                /* Note: I'm not exiting after this error. The only problem with not setting the 
+                snmp_log(LOG_ERR, "Could not escape search path string\n");
+                /* Note: I'm not exiting after this error. The only problem with not setting the
                  * search_path is not having the database tables available, which right now isn't
                  * a really big deal */
             else {
                 set_search_path = calloc(sizeof(*escaped_search_path) + sizeof("SET search_path TO "), sizeof(char*));
-                if (set_search_path == NULL) 
+                if (set_search_path == NULL)
                     snmp_log(LOG_ERR, "Could not allocate memory to set search_path\n");
                 else {
                     snmp_log(LOG_INFO, set_search_path);
@@ -274,7 +274,7 @@ main(int argc, char *argv[])
                 }
             }
             free(escaped_search_path); free(set_search_path);
-        } 
+        }
 #endif
     }
     else {
@@ -289,13 +289,13 @@ main(int argc, char *argv[])
                            NETSNMP_DS_AGENT_ROLE, SUB_AGENT);
 
 #if 0
-            netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID, 
+            netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID,
                NETSNMP_DS_AGENT_AGENTX_MASTER, 0);
 
 #endif
 #ifdef DEBUG
-            if (netsnmp_ds_get_boolean(NETSNMP_DS_APPLICATION_ID, 
-                               NETSNMP_DS_AGENT_ROLE)) 
+            if (netsnmp_ds_get_boolean(NETSNMP_DS_APPLICATION_ID,
+                               NETSNMP_DS_AGENT_ROLE))
               snmp_log(LOG_INFO,"SUB_AGENT running.\n");
 #endif
 
@@ -311,16 +311,16 @@ main(int argc, char *argv[])
 
 #endif
 #ifdef DEBUG
-    if(netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID, 
+    if(netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID,
             NETSNMP_DS_AGENT_X_SOCKET))
 
         snmp_log(LOG_INFO,"AGENT_X_SOCKET:%s\n",
-            netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID, 
+            netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID,
                         NETSNMP_DS_AGENT_X_SOCKET));
-     if(netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID, 
+     if(netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID,
             NETSNMP_DS_AGENT_PORTS))
             snmp_log(LOG_INFO,"AGENT_PORTS:%s\n",
-            netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID, 
+            netsnmp_ds_get_string(NETSNMP_DS_APPLICATION_ID,
                         NETSNMP_DS_AGENT_PORTS));
 #endif
 

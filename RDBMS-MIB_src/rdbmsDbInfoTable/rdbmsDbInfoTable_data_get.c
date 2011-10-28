@@ -67,7 +67,7 @@ rdbmsDbInfoTable_indexes_set_tbl_idx(rdbmsDbInfoTable_mib_index *tbl_idx, long r
 
     /* rdbmsDbIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbIndex = rdbmsDbIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsDbInfoTable_indexes_set_tbl_idx */
@@ -154,9 +154,9 @@ rdbmsDbInfoProductName_map(char **mib_rdbmsDbInfoProductName_val_ptr_ptr, size_t
 
     netsnmp_assert(NULL != raw_rdbmsDbInfoProductName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbInfoProductName_val_ptr_ptr) && (NULL != mib_rdbmsDbInfoProductName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoProductName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbInfoProductName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -296,9 +296,9 @@ rdbmsDbInfoVersion_map(char **mib_rdbmsDbInfoVersion_val_ptr_ptr, size_t *mib_rd
 
     netsnmp_assert(NULL != raw_rdbmsDbInfoVersion_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbInfoVersion_val_ptr_ptr) && (NULL != mib_rdbmsDbInfoVersion_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoVersion_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbInfoVersion non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -439,9 +439,9 @@ int
 rdbmsDbInfoSizeUnits_map(u_long *mib_rdbmsDbInfoSizeUnits_val_ptr, u_long raw_rdbmsDbInfoSizeUnits_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbInfoSizeUnits_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoSizeUnits_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbInfoSizeUnits enum mapping.
      * uses INTERNAL_* macros defined in the header files
@@ -558,9 +558,9 @@ int
 rdbmsDbInfoSizeAllocated_map(long *mib_rdbmsDbInfoSizeAllocated_val_ptr, long raw_rdbmsDbInfoSizeAllocated_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbInfoSizeAllocated_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoSizeAllocated_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbInfoSizeAllocated mapping.
      * If the values for your data type don't exactly match the
@@ -646,9 +646,9 @@ int
 rdbmsDbInfoSizeUsed_map(long *mib_rdbmsDbInfoSizeUsed_val_ptr, long raw_rdbmsDbInfoSizeUsed_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbInfoSizeUsed_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoSizeUsed_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbInfoSizeUsed mapping.
      * If the values for your data type don't exactly match the
@@ -742,9 +742,9 @@ rdbmsDbInfoLastBackup_map(char **mib_rdbmsDbInfoLastBackup_val_ptr_ptr, size_t *
 
     netsnmp_assert(NULL != raw_rdbmsDbInfoLastBackup_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbInfoLastBackup_val_ptr_ptr) && (NULL != mib_rdbmsDbInfoLastBackup_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoLastBackup_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbInfoLastBackup non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -826,15 +826,15 @@ rdbmsDbInfoLastBackup_get( rdbmsDbInfoTable_rowreq_ctx *rowreq_ctx, char **rdbms
 
    /* call convenience function to set data */
    rc = netsnmp_dateandtime_set_buf_from_vars((u_char *)*rdbmsDbInfoLastBackup_val_ptr_ptr, rdbmsDbInfoLastBackup_val_ptr_len_ptr,
-   rowreq_ctx->data.lastBackupYear, 
-   rowreq_ctx->data.lastBackupMonth, 
-   rowreq_ctx->data.lastBackupDay, 
-   rowreq_ctx->data.lastBackupHour, 
-   rowreq_ctx->data.lastBackupMinutes, 
-   rowreq_ctx->data.lastBackupSeconds, 
-   rowreq_ctx->data.lastBackupDeciSeconds, 
-   rowreq_ctx->data.utc_offset_direction, 
-   rowreq_ctx->data.utc_offset_hours, 
+   rowreq_ctx->data.lastBackupYear,
+   rowreq_ctx->data.lastBackupMonth,
+   rowreq_ctx->data.lastBackupDay,
+   rowreq_ctx->data.lastBackupHour,
+   rowreq_ctx->data.lastBackupMinutes,
+   rowreq_ctx->data.lastBackupSeconds,
+   rowreq_ctx->data.lastBackupDeciSeconds,
+   rowreq_ctx->data.utc_offset_direction,
+   rowreq_ctx->data.utc_offset_hours,
    rowreq_ctx->data.utc_offset_minutes );
    if(rc != SNMP_ERR_NOERROR)
       return rc;

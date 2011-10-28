@@ -22,7 +22,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -103,7 +103,7 @@ rdbmsDbParamTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsDbParamTable:rdbmsDbParamTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsDbParamTable_container_init\n");
         return;
@@ -162,7 +162,7 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
     rdbmsDbParamTable_rowreq_ctx *rowreq_ctx;
     size_t                 count = 0;
     int i, j, resultCount, errorCode = MFD_SUCCESS, elements;
-    
+
    long   rdbmsDbParamSubIndex = 0;
    PGresult *qryRes;
    char **array;
@@ -180,7 +180,7 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
      * the container.
      */
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
+    if (PQstatus(dbconn) == CONNECTION_OK)
 	    qryRes = PQexec(dbconn, "SELECT oid, datname, datconfig FROM pg_database");
     else {
 	    snmp_log(LOG_ERR, "Can't get connected to the database");
@@ -259,7 +259,7 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
 	    /*
 	     * make sure there is enough space for rdbmsDbParamID data
 	     */
-	    /* See comment in rdbmsDbParamID_get() -- we don't need this value 
+	    /* See comment in rdbmsDbParamID_get() -- we don't need this value
 	    if ((NULL == rowreq_ctx->data.rdbmsDbParamID) ||
 		(rowreq_ctx->data.rdbmsDbParamID_len < (rdbmsDbParamID_len * sizeof(rowreq_ctx->data.rdbmsDbParamID[0])))) {
 		snmp_log(LOG_ERR,"not enough space for value\n");
@@ -269,7 +269,7 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
 	    rowreq_ctx->data.rdbmsDbParamID_len = rdbmsDbParamID_len * sizeof(rowreq_ctx->data.rdbmsDbParamID[0]);
 	    memcpy( rowreq_ctx->data.rdbmsDbParamID, rdbmsDbParamID, rowreq_ctx->data.rdbmsDbParamID_len );
 	    */
-	    
+
 	    /*
 	     * setup/save data for rdbmsDbParamCurrValue
 	     * rdbmsDbParamCurrValue(4)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
@@ -295,7 +295,7 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
 	    }
 	    rowreq_ctx->data.rdbmsDbParamCurrValue_len = rdbmsDbParamCurrValue_len * sizeof(rowreq_ctx->data.rdbmsDbParamCurrValue[0]);
 	    memcpy( rowreq_ctx->data.rdbmsDbParamCurrValue, rdbmsDbParamCurrValue, rowreq_ctx->data.rdbmsDbParamCurrValue_len );
-	    
+
 	    /*
 	     * setup/save data for rdbmsDbParamComment
 	     * rdbmsDbParamComment(5)/DisplayString/ASN_OCTET_STR/char(char)//L/A/W/e/R/d/H
@@ -321,8 +321,8 @@ rdbmsDbParamTable_cache_load(netsnmp_container *container)
 	    }
 	    rowreq_ctx->data.rdbmsDbParamComment_len = rdbmsDbParamComment_len * sizeof(rowreq_ctx->data.rdbmsDbParamComment[0]);
 	    memcpy( rowreq_ctx->data.rdbmsDbParamComment, rdbmsDbParamComment, rowreq_ctx->data.rdbmsDbParamComment_len );
-	    
-		
+
+
 		/*
 		 * insert into table container
 		 */

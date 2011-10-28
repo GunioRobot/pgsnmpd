@@ -21,7 +21,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -102,7 +102,7 @@ rdbmsSrvParamTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsSrvParamTable_container_init\n");
         return;
@@ -168,7 +168,7 @@ rdbmsSrvParamTable_cache_load(netsnmp_container *container)
 
     DEBUGMSGTL(("verbose:rdbmsSrvParamTable:rdbmsSrvParamTable_cache_load","called\n"));
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
+    if (PQstatus(dbconn) == CONNECTION_OK)
 	    pg_db_qry = PQexec(dbconn, "SELECT name, setting, SUBSTRING(short_desc FROM 1 FOR 63) FROM pg_settings");
     else {
 	    snmp_log(LOG_ERR, "Can't get connected to the database");
@@ -214,7 +214,7 @@ rdbmsSrvParamTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsSrvParamID_len = sizeof(rowreq_ctx->data.rdbmsSrvParamID[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvParamID, &rdbmsSrvParamID, rowreq_ctx->data.rdbmsSrvParamID_len );
-    
+
     tmpString = PQgetvalue(pg_db_qry, i, 1);
     tmpInt = strlen(tmpString);
     if ((NULL == rowreq_ctx->data.rdbmsSrvParamCurrValue) ||
@@ -225,7 +225,7 @@ rdbmsSrvParamTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsSrvParamCurrValue_len = tmpInt * sizeof(rowreq_ctx->data.rdbmsSrvParamCurrValue[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvParamCurrValue, tmpString, rowreq_ctx->data.rdbmsSrvParamCurrValue_len );
-    
+
     tmpString = PQgetvalue(pg_db_qry, i, 2);
     tmpInt = strlen(tmpString);
     if ((NULL == rowreq_ctx->data.rdbmsSrvParamComment) ||
@@ -236,8 +236,8 @@ rdbmsSrvParamTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsSrvParamComment_len = tmpInt * sizeof(rowreq_ctx->data.rdbmsSrvParamComment[0]);
     memcpy( rowreq_ctx->data.rdbmsSrvParamComment, tmpString, rowreq_ctx->data.rdbmsSrvParamComment_len );
-    
-        
+
+
         /*
          * insert into table container
          */

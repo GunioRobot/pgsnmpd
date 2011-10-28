@@ -119,12 +119,12 @@ initialize_table_pgsqlPgAmopTable(void)
                            0);
     table_info->min_column = COLUMN_PGSQLPGAMOPENTRYOID;
     table_info->max_column = COLUMN_PGSQLPGAMOPAMOPMETHOD;
-    
+
     iinfo = SNMP_MALLOC_TYPEDEF( netsnmp_iterator_info );
     iinfo->get_first_data_point = pgsqlPgAmopTable_get_first_data_point;
     iinfo->get_next_data_point  = pgsqlPgAmopTable_get_next_data_point;
     iinfo->table_reginfo        = table_info;
-    
+
     netsnmp_register_table_iterator( reg, iinfo );
 
     /* Initialise the contents of the table here */
@@ -242,7 +242,7 @@ pgsqlPgAmopTable_handler(
             table_entry = (struct pgsqlPgAmopTable_entry *)
                               netsnmp_extract_iterator_context(request);
             table_info  =     netsnmp_extract_table_info(      request);
-    
+
             switch (table_info->colnum) {
             case COLUMN_PGSQLPGAMOPENTRYOID:
                 if ( !table_entry ) {

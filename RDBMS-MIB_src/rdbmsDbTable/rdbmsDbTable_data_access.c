@@ -21,7 +21,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -98,7 +98,7 @@ rdbmsDbTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsDbTable_container_init\n");
         return;
@@ -171,7 +171,7 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
      * set the index(es) [and data, optionally] and insert into
      * the container. */
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
+    if (PQstatus(dbconn) == CONNECTION_OK)
 	    pg_db_qry = PQexec(dbconn, "SELECT oid, datname FROM pg_database");
     else {
 	    snmp_log(LOG_ERR, "Can't get connected to the database");
@@ -225,9 +225,9 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
 
 	/* Note that this queries pgsnmpd_rdbmsDbTable once per database. This could
 	 * be more efficient by only querying once if it can't find the table (being
-	 * sure that the table didn't exist, as opposed to simply an entry for that 
-	 * database not existing in the table). It could also be rewritten so that 
-	 * only one query is issued, joining pg_database and pgsnmpd_rdbmsDbTable, but 
+	 * sure that the table didn't exist, as opposed to simply an entry for that
+	 * database not existing in the table). It could also be rewritten so that
+	 * only one query is issued, joining pg_database and pgsnmpd_rdbmsDbTable, but
 	 * that would have to be smart enough to know of the pgsnmpd table existed
 	 * and not do the join if it didn't */
 	pgsnmpd_tbl_qry = NULL;
@@ -268,7 +268,7 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
     rowreq_ctx->data.rdbmsDbPrivateMibOID_len = 8;
     rdbmsDbPrivateMibOID[7] = (oid) atoi(PQgetvalue(pg_db_qry, i, 0));
     memcpy( rowreq_ctx->data.rdbmsDbPrivateMibOID, rdbmsDbPrivateMibOID, 8 * sizeof(rdbmsDbPrivateMibOID[0]));
-    
+
     /*
      * TODO:246:r: |-> Define rdbmsDbVendorName mapping.
      */
@@ -280,7 +280,7 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbVendorName_len = vendor_name_len;
     memcpy( rowreq_ctx->data.rdbmsDbVendorName, vendor_name, vendor_name_len);
-    
+
     /*
      * TODO:246:r: |-> Define rdbmsDbName mapping.
      */
@@ -293,7 +293,7 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
     tmpString = PQgetvalue(pg_db_qry, i, 1);
     rowreq_ctx->data.rdbmsDbName_len = strlen(tmpString) * sizeof(rowreq_ctx->data.rdbmsDbName[0]);
     strncpy(rowreq_ctx->data.rdbmsDbName, tmpString, rowreq_ctx->data.rdbmsDbName_len);
-    
+
     /*
      * TODO:246:r: |-> Define rdbmsDbContact mapping.
      */
@@ -305,8 +305,8 @@ rdbmsDbTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbContact_len = contact_name_len;
     memcpy( rowreq_ctx->data.rdbmsDbContact, contact_name, contact_name_len);
-    
-        
+
+
         /*
          * insert into table container
          */

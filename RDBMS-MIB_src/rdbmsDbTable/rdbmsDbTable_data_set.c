@@ -21,7 +21,7 @@
  *
  * These routines are used to set the value for individual objects. The
  * row context is passed, along with the new value.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -338,12 +338,12 @@ The textual identification of the contact person for this
  * You should check that the requested change between the undo value and the
  * new value is legal (ie, the transistion from one value to another
  * is legal).
- *      
+ *
  *@note
  * This check is only to determine if the new value
  * is \b potentially valid. This is the first check of many, and
  * is one of the simplest ones.
- * 
+ *
  *@note
  * this is not the place to do any checks for values
  * which depend on some other value in the mib. Those
@@ -476,7 +476,7 @@ rdbmsDbContact_undo( rdbmsDbTable_rowreq_ctx *rowreq_ctx)
             (rowreq_ctx->undo->rdbmsDbContact_len * sizeof(rowreq_ctx->data.rdbmsDbContact[0])));
     rowreq_ctx->data.rdbmsDbContact_len = rowreq_ctx->undo->rdbmsDbContact_len;
 
-    
+
     return MFD_SUCCESS;
 } /* rdbmsDbContact_undo */
 
@@ -502,7 +502,7 @@ int
 rdbmsDbTable_check_dependencies(rdbmsDbTable_rowreq_ctx *rowreq_ctx)
 {
     int rc = MFD_SUCCESS;
-    
+
     DEBUGMSGTL(("internal:rdbmsDbTable:rdbmsDbTable_check_dependencies","called\n"));
 
     netsnmp_assert(NULL != rowreq_ctx);

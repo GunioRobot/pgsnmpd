@@ -80,34 +80,34 @@ typedef netsnmp_data_list * rdbmsDbInfoTable_registration_ptr;
  * rdbmsDbInfoTable.
  */
 typedef struct rdbmsDbInfoTable_data_s {
-    
+
         /*
          * rdbmsDbInfoProductName(1)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsDbInfoProductName[255];
 size_t      rdbmsDbInfoProductName_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsDbInfoVersion(2)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
    char   rdbmsDbInfoVersion[255];
 size_t      rdbmsDbInfoVersion_len; /* # of char elements, not bytes */
-    
+
         /*
          * rdbmsDbInfoSizeUnits(3)/INTEGER/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   rdbmsDbInfoSizeUnits;
-    
+
         /*
          * rdbmsDbInfoSizeAllocated(4)/INTEGER/ASN_INTEGER/long(long)//l/A/W/e/R/d/h
          */
    long   rdbmsDbInfoSizeAllocated;
-    
+
         /*
          * rdbmsDbInfoSizeUsed(5)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/R/d/h
          */
    long   rdbmsDbInfoSizeUsed;
-    
+
         /*
          * rdbmsDbInfoLastBackup(6)/DateAndTime/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
@@ -160,9 +160,9 @@ typedef struct rdbmsDbInfoTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsDbInfoTable_IDX_LEN];
-    
+
     rdbmsDbInfoTable_mib_index        tbl_idx;
-    
+
     rdbmsDbInfoTable_data              data;
 
     /*
@@ -179,7 +179,7 @@ typedef struct rdbmsDbInfoTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsDbInfoTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

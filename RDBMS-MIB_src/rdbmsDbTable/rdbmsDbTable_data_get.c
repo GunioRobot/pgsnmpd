@@ -94,9 +94,9 @@ int
 rdbmsDbIndex_map(long *mib_rdbmsDbIndex_val_ptr, long raw_rdbmsDbIndex_val)
 {
     netsnmp_assert(NULL != mib_rdbmsDbIndex_val_ptr);
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbIndex_map","called\n"));
-    
+
     /*
      * TODO:241:o: |-> Implement rdbmsDbIndex mapping.
      * If the values for your data type don't exactly match the
@@ -128,7 +128,7 @@ rdbmsDbTable_indexes_set_tbl_idx(rdbmsDbTable_mib_index *tbl_idx, long rdbmsDbIn
 
     /* rdbmsDbIndex(1)/INTEGER/ASN_INTEGER/long(long)//l/a/w/e/R/d/h */
     tbl_idx->rdbmsDbIndex = rdbmsDbIndex_val;
-    
+
 
     return MFD_SUCCESS;
 } /* rdbmsDbTable_indexes_set_tbl_idx */
@@ -223,9 +223,9 @@ rdbmsDbPrivateMibOID_map(oid **mib_rdbmsDbPrivateMibOID_val_ptr_ptr, size_t *mib
 
     netsnmp_assert(NULL != raw_rdbmsDbPrivateMibOID_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbPrivateMibOID_val_ptr_ptr) && (NULL != mib_rdbmsDbPrivateMibOID_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbPrivateMibOID_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbPrivateMibOID non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -365,9 +365,9 @@ rdbmsDbVendorName_map(char **mib_rdbmsDbVendorName_val_ptr_ptr, size_t *mib_rdbm
 
     netsnmp_assert(NULL != raw_rdbmsDbVendorName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbVendorName_val_ptr_ptr) && (NULL != mib_rdbmsDbVendorName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbVendorName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbVendorName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -512,9 +512,9 @@ rdbmsDbName_map(char **mib_rdbmsDbName_val_ptr_ptr, size_t *mib_rdbmsDbName_val_
 
     netsnmp_assert(NULL != raw_rdbmsDbName_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbName_val_ptr_ptr) && (NULL != mib_rdbmsDbName_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbName_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbName non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple
@@ -662,9 +662,9 @@ rdbmsDbContact_map(char **mib_rdbmsDbContact_val_ptr_ptr, size_t *mib_rdbmsDbCon
 
     netsnmp_assert(NULL != raw_rdbmsDbContact_val_ptr);
     netsnmp_assert((NULL != mib_rdbmsDbContact_val_ptr_ptr) && (NULL != mib_rdbmsDbContact_val_ptr_len_ptr));
-    
+
     DEBUGMSGTL(("verbose:rdbmsDbTable:rdbmsDbContact_map","called\n"));
-    
+
     /*
      * TODO:241:r: |-> Implement rdbmsDbContact non-integer mapping
      * it is hard to autogenerate code for mapping types that are not simple

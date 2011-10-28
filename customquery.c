@@ -87,9 +87,9 @@ int custom_query_get_value(
 int run_query(pgsnmpd_query *query);
 int set_val_from_string(netsnmp_variable_list *var, u_char type, char *val);
 
-/* 
+/*
  * Frees memory associated with an allocated (or partially allocated)
- * pgsnmpd_query structure, and all such structures following it in the 
+ * pgsnmpd_query structure, and all such structures following it in the
  * query list
 */
 void free_query(pgsnmpd_query *query) {
@@ -150,7 +150,7 @@ int run_query(pgsnmpd_query *query) {
     time_t curtime;
 
     if (query == NULL) return -1;
-    if (PQstatus(dbconn) != CONNECTION_OK) 
+    if (PQstatus(dbconn) != CONNECTION_OK)
         return -1;
     if (query->result != NULL)
         PQclear(query->result);
@@ -176,17 +176,17 @@ void fill_query_column_types(pgsnmpd_query *query)
     PGresult *res;
     const char *values[1];
     char param[10];
-    
+
     /* This translates SQL types to SNMP types, as follows:
      * Conversions for these four types are obvious
      * ASN_INTEGER
      * ASN_FLOAT
      * ASN_BOOLEAN
      * ASN_OBJECT_ID
-     * 
+     *
      * Everything else becomes a string:
      * ASN_OCTET_STR
-     * 
+     *
      * Perhaps one day we'll also use ASN_DOUBLE
      */
 
@@ -200,7 +200,7 @@ void fill_query_column_types(pgsnmpd_query *query)
             continue;
         }
         type = PQftype(query->result, i);
-        /* 
+        /*
          * TODO: query pg_type table (including pg_type.h to use builtin
          * constants got all kinds of errors I'd rather not deal with
          */
@@ -216,10 +216,10 @@ void fill_query_column_types(pgsnmpd_query *query)
                 case 1:
                     query->types[i] = ASN_FLOAT;
                     break;
-                case 2: 
+                case 2:
                     query->types[i] = ASN_BOOLEAN;
                     break;
-                case 3: 
+                case 3:
                     query->types[i] = ASN_OCTET_STR;
                     break;
                 default: /* If we get here, it's because the TYPEQUERY is b0rken */
@@ -246,7 +246,7 @@ void init_custom_queries(void)
     int i;
     PGresult *res;
 
-    if (custom_query_config_file == NULL) 
+    if (custom_query_config_file == NULL)
         return;
 
     /*
@@ -256,7 +256,7 @@ void init_custom_queries(void)
         ASN_OCTET_STR = 3
     */
 
-    res = PQprepare(dbconn, "TYPEQUERY", 
+    res = PQprepare(dbconn, "TYPEQUERY",
         "SELECT CASE "
             "WHEN typname LIKE 'int%' OR typname = 'xid' OR typname = 'oid'"
                 "THEN 0 "
@@ -396,7 +396,7 @@ void fill_query_container(pgsnmpd_query *query)
             set_val_from_string(&var_otherIndexes[j], query->types[j], val);
         }
         row = SNMP_MALLOC_TYPEDEF(cust_query_row);
-        row->myoids = malloc(sizeof(oid) * 
+        row->myoids = malloc(sizeof(oid) *
             (query->num_indexes + extra_idx_count + string_idx_count + string_idx_len));
         if (row->myoids == NULL) {
             snmp_log(LOG_ERR, "memory allocation problem \n");
@@ -446,7 +446,7 @@ int custom_query_get_value(
         return SNMP_ERR_GENERR;
     }
 
-    return 
+    return
         set_val_from_string(var, context->query->types[column - context->query->min_colnum],
             PQgetvalue(context->query->result, context->rownum, column - context->query->min_colnum));
 }

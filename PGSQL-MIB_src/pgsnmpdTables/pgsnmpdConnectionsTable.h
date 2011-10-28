@@ -74,25 +74,25 @@ typedef netsnmp_data_list * pgsnmpdConnectionsTable_registration_ptr;
  * pgsnmpdConnectionsTable.
  */
 typedef struct pgsnmpdConnectionsTable_data_s {
-    
+
         /*
          * pgsnmpdConnHost(2)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H
          */
    char   pgsnmpdConnHost[255];
 size_t      pgsnmpdConnHost_len; /* # of char elements, not bytes */
-    
+
         /*
          * pgsnmpdConnPort(3)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H
          */
    char   pgsnmpdConnPort[255];
 size_t      pgsnmpdConnPort_len; /* # of char elements, not bytes */
-    
+
         /*
          * pgsnmpdConnDbName(4)/DisplayString/ASN_OCTET_STR/char(char)//L/a/w/e/R/d/H
          */
    char   pgsnmpdConnDbName[255];
 size_t      pgsnmpdConnDbName_len; /* # of char elements, not bytes */
-    
+
 } pgsnmpdConnectionsTable_data;
 
 
@@ -134,9 +134,9 @@ typedef struct pgsnmpdConnectionsTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_pgsnmpdConnectionsTable_IDX_LEN];
-    
+
     pgsnmpdConnectionsTable_mib_index        tbl_idx;
-    
+
     pgsnmpdConnectionsTable_data              data;
 
     /*
@@ -153,7 +153,7 @@ typedef struct pgsnmpdConnectionsTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to pgsnmpdConnectionsTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

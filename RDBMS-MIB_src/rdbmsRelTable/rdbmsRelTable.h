@@ -81,12 +81,12 @@ typedef netsnmp_data_list * rdbmsRelTable_registration_ptr;
  * rdbmsRelTable.
  */
 typedef struct rdbmsRelTable_data_s {
-    
+
         /*
          * rdbmsRelState(1)/INTEGER/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
          */
    u_long   rdbmsRelState;
-    
+
         /*
          * rdbmsRelActiveTime(2)/DateAndTime/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
          */
@@ -100,7 +100,7 @@ typedef struct rdbmsRelTable_data_s {
 	int activeTimeUtcOffsetDirection;
 	int activeTimeUtcOffsetHours;
 	int activeTimeUtcOffsetMinutes;
-    
+
 } rdbmsRelTable_data;
 
 
@@ -141,9 +141,9 @@ typedef struct rdbmsRelTable_rowreq_ctx_s {
     /** this must be first for container compare to work */
     netsnmp_index        oid_idx;
     oid                  oid_tmp[MAX_rdbmsRelTable_IDX_LEN];
-    
+
     rdbmsRelTable_mib_index        tbl_idx;
-    
+
     rdbmsRelTable_data              data;
 
     /*
@@ -160,7 +160,7 @@ typedef struct rdbmsRelTable_rowreq_ctx_s {
     /*
      * TODO:131:o: |   |-> Add useful data to rdbmsRelTable rowreq context.
      */
-    
+
     /*
      * storage for future expansion
      */

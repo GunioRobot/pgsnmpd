@@ -37,7 +37,7 @@ extern "C" {
 
 #define FLAG_MAX_RDBMSDBTABLE 1
 
-    
+
 
 #ifdef __cplusplus
 }

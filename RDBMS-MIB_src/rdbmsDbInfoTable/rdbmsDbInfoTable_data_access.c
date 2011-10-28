@@ -22,7 +22,7 @@ const char *rdbmsDbInfoProductName = { "PostgreSQL" };
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -103,7 +103,7 @@ rdbmsDbInfoTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsDbInfoTable_container_init\n");
         return;
@@ -167,7 +167,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
 
     DEBUGMSGTL(("verbose:rdbmsDbInfoTable:rdbmsDbInfoTable_cache_load","called\n"));
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
+    if (PQstatus(dbconn) == CONNECTION_OK)
 	    if (PQserverVersion(dbconn) < 80100)
 		    pg_db_qry = PQexec(dbconn, "SELECT oid, version(), 0 FROM pg_database");
             else
@@ -243,7 +243,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
 	            rowreq_ctx->data.utc_offset_minutes = atoi(PQgetvalue(pgsnmpd_tbl_qry, 0, 8));
 	            tmpInt = rowreq_ctx->data.utc_offset_hours * 60 + rowreq_ctx->data.utc_offset_minutes;
 	            if (tmpInt == 0) rowreq_ctx->data.utc_offset_direction = 0;
-	            else 
+	            else
 	      	        rowreq_ctx->data.utc_offset_direction = (tmpInt > 0 ? 1 : -1);
 		}
 		else snmp_log(LOG_INFO, "Unable to find relevant data in pgsnmpd_rdbmsDbTable\n");
@@ -279,7 +279,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbInfoProductName_len = strlen(rdbmsDbInfoProductName) * sizeof(rowreq_ctx->data.rdbmsDbInfoProductName[0]);
     memcpy( rowreq_ctx->data.rdbmsDbInfoProductName, rdbmsDbInfoProductName, rowreq_ctx->data.rdbmsDbInfoProductName_len );
-    
+
     /*
      * setup/save data for rdbmsDbInfoVersion
      * rdbmsDbInfoVersion(2)/DisplayString/ASN_OCTET_STR/char(char)//L/A/w/e/R/d/H
@@ -307,7 +307,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbInfoVersion_len = tmpInt * sizeof(rowreq_ctx->data.rdbmsDbInfoVersion[0]);
     memcpy( rowreq_ctx->data.rdbmsDbInfoVersion, tmpString, rowreq_ctx->data.rdbmsDbInfoVersion_len );
-    
+
     /*
      * setup/save data for rdbmsDbInfoSizeUnits
      * rdbmsDbInfoSizeUnits(3)/INTEGER/ASN_INTEGER/long(u_long)//l/A/w/E/r/d/h
@@ -323,7 +323,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
        errorCode = MFD_ERROR;
        break;
     }
-    
+
     /*
      * setup/save data for rdbmsDbInfoSizeAllocated
      * rdbmsDbInfoSizeAllocated(4)/INTEGER/ASN_INTEGER/long(long)//l/A/W/e/R/d/h
@@ -335,7 +335,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
      * Integer based value can usually just do a direct copy.
      */
     rowreq_ctx->data.rdbmsDbInfoSizeAllocated = strtoul(PQgetvalue(pg_db_qry, i, 2), NULL, 10);
-    
+
     /*
      * setup/save data for rdbmsDbInfoSizeUsed
      * rdbmsDbInfoSizeUsed(5)/INTEGER/ASN_INTEGER/long(long)//l/A/w/e/R/d/h
@@ -347,7 +347,7 @@ rdbmsDbInfoTable_cache_load(netsnmp_container *container)
      * Integer based value can usually just do a direct copy.
      */
     rowreq_ctx->data.rdbmsDbInfoSizeUsed = strtoul(PQgetvalue(pg_db_qry, i, 2), NULL, 10);
-        
+
         /*
          * insert into table container
          */

@@ -21,7 +21,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -98,7 +98,7 @@ rdbmsDbLimitedResourceTable_container_init(netsnmp_container **container_ptr_ptr
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsDbLimitedResourceTable_container_init\n");
         return;
@@ -162,8 +162,8 @@ rdbmsDbLimitedResourceTable_cache_load(netsnmp_container *container)
 
     DEBUGMSGTL(("verbose:rdbmsDbLimitedResourceTable:rdbmsDbLimitedResourceTable_cache_load","called\n"));
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
-	    /* We can probably add new data to the rdbmsDbLimitedResourceTable by UNION-ing new queries with this one 
+    if (PQstatus(dbconn) == CONNECTION_OK)
+	    /* We can probably add new data to the rdbmsDbLimitedResourceTable by UNION-ing new queries with this one
 	     * SELECT <db_oid>, <item_name>, <item_limit>, <current>, <high_water>, <failures>, <description> */
 	    pg_db_qry = PQexec(dbconn, "SELECT oid, 'XID', 2000000000, AGE(datfrozenxid), 0, 0, 'Transactions since last vacuum' FROM pg_database");
     else {
@@ -209,7 +209,7 @@ rdbmsDbLimitedResourceTable_cache_load(netsnmp_container *container)
         }
 	rowreq_ctx->data.rdbmsDbLimitedResourceDescription_len = 255;
 
-    /* COMMENTED OUT UNTIL WE HAVE PGSNMPD-MIB SO THIS VALUE CAN POINT TO SOMETING 
+    /* COMMENTED OUT UNTIL WE HAVE PGSNMPD-MIB SO THIS VALUE CAN POINT TO SOMETING
       if ((NULL == rowreq_ctx->data.rdbmsDbLimitedResourceID) ||
         (rowreq_ctx->data.rdbmsDbLimitedResourceID_len < (rdbmsDbLimitedResourceID_len * sizeof(rowreq_ctx->data.rdbmsDbLimitedResourceID[0])))) {
         snmp_log(LOG_ERR,"not enough space for value\n");
@@ -217,15 +217,15 @@ rdbmsDbLimitedResourceTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbLimitedResourceID_len = rdbmsDbLimitedResourceID_len * sizeof(rowreq_ctx->data.rdbmsDbLimitedResourceID[0]);
     memcpy( rowreq_ctx->data.rdbmsDbLimitedResourceID, rdbmsDbLimitedResourceID, rowreq_ctx->data.rdbmsDbLimitedResourceID_len ); */
-    
+
     rowreq_ctx->data.rdbmsDbLimitedResourceLimit = atoi(PQgetvalue(pg_db_qry, i, 2));
-    
+
     rowreq_ctx->data.rdbmsDbLimitedResourceCurrent = atoi(PQgetvalue(pg_db_qry, i, 3));
 
     rowreq_ctx->data.rdbmsDbLimitedResourceHighwater = atoi(PQgetvalue(pg_db_qry, i, 4));
-    
+
     rowreq_ctx->data.rdbmsDbLimitedResourceFailures = atoi(PQgetvalue(pg_db_qry, i, 5));
-    
+
     tmpString = PQgetvalue(pg_db_qry, i, 6);
     tmpInt = strlen(tmpString);
     if ((NULL == rowreq_ctx->data.rdbmsDbLimitedResourceDescription) ||
@@ -236,8 +236,8 @@ rdbmsDbLimitedResourceTable_cache_load(netsnmp_container *container)
     }
     rowreq_ctx->data.rdbmsDbLimitedResourceDescription_len = tmpInt * sizeof(rowreq_ctx->data.rdbmsDbLimitedResourceDescription[0]);
     memcpy( rowreq_ctx->data.rdbmsDbLimitedResourceDescription, tmpString, rowreq_ctx->data.rdbmsDbLimitedResourceDescription_len );
-    
-        
+
+
         /*
          * insert into table container
          */

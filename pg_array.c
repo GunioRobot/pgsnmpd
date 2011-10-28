@@ -55,7 +55,7 @@ char ** pg_text_array_parse(char *input, int *len) {
 		while (!done_single_element) {
 			if (!escaped) {
 				switch (*incursor) {
-					case '}': 
+					case '}':
 						done_single_element = 1;
 						done_all_elements = 1;
 						break;
@@ -141,7 +141,7 @@ char ** pg_text_array_parse(char *input, int *len) {
 	return results;
 }
 
-/* pg_text_array_free() 
+/* pg_text_array_free()
  * Frees an array of strings such as is returned by pg_text_array_parse() */
 void pg_text_array_free(char **array, int len) {
 	int i;

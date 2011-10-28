@@ -2,27 +2,27 @@ PGSNMPD Version 1.0 Release.
 
 ===== Abstract =====
 
-SNMP (Simple Network Management Protocol) is a protocol for supervising 
+SNMP (Simple Network Management Protocol) is a protocol for supervising
 the apparatus connected to the network via a network.
 The version 1 of SNMP is defined by RFC1157 and the version 2 is carried
-out by RFC1441. 
+out by RFC1441.
 
-Network management by SNMP is realized by the UDP communication between 
-a manager and the agent who resides in the apparatus for management 
+Network management by SNMP is realized by the UDP communication between
+a manager and the agent who resides in the apparatus for management
 permanently. An agent returns a response to the request from a manager.
-when special phenomena apparatus rebooted occur, a trap is sent to a 
+when special phenomena apparatus rebooted occur, a trap is sent to a
 manager from an agent.
 
-MIB (Management Information Base) is the database of the management 
-information about the network apparatus which exists in the network 
-apparatus corresponding to SNMP. The thing of each management information 
+MIB (Management Information Base) is the database of the management
+information about the network apparatus which exists in the network
+apparatus corresponding to SNMP. The thing of each management information
 stored in MIB is called object (Object).OID (Object IDentifier),it is the
 discernment child rejected in order to distinguish each object,and is also
-called an object discernment child. the object is managed by the tree 
+called an object discernment child. the object is managed by the tree
 structure.
 
-Community name is the exchange between a manager and an agent, and has a 
-role like a password. That is, if the right community name is not specified 
+Community name is the exchange between a manager and an agent, and has a
+role like a password. That is, if the right community name is not specified
 when publishing a request from a manager to an agent, in an agent side,
 it will be interpreted as unlawful access.
 

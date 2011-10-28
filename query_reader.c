@@ -266,7 +266,7 @@ parse_config(const char *filename) {
         }
         yaml_event_delete(&event);
     }
-    
+
     if (error)
         print_error(&parser);
 
@@ -299,9 +299,9 @@ void print_error(yaml_parser_t *parser) {
     snmp_log(LOG_ERR, "YAML parse error: %s at offset %d, value %d, context \"%s\"\n",
         parser->problem, parser->problem_offset, parser->problem_value, parser->context);
 
-    snmp_log(LOG_ERR, "Problem mark: index %d, line %d, column %d\n", 
+    snmp_log(LOG_ERR, "Problem mark: index %d, line %d, column %d\n",
         parser->problem_mark.index, parser->problem_mark.line, parser->problem_mark.column);
-    snmp_log(LOG_ERR, "Context marK: index %d, line %d, column %d\n", 
+    snmp_log(LOG_ERR, "Context marK: index %d, line %d, column %d\n",
         parser->context_mark.index, parser->context_mark.line, parser->context_mark.column);
 
     switch (parser->error) {

@@ -15,7 +15,7 @@
 # ...
 # fieldNameN	fieldTypeN	"descriptionN"	OIDN	max-accessN	statusN
 # -- max-access defaults to read-only; status defaults as for a table. OID defaults to the next avaliable OID starting with 1
-# 
+#
 # -- multiple tables may be defined at once, if separated by a blank line
 
 # The definition file should be piped into this script as STDIN

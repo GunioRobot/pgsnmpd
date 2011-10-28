@@ -21,7 +21,7 @@
  *
  * These routines are used to locate the data used to satisfy
  * requests.
- * 
+ *
  * @{
  */
 /**********************************************************************
@@ -117,7 +117,7 @@ rdbmsRelTable_container_init(netsnmp_container **container_ptr_ptr,
                         netsnmp_cache *cache)
 {
     DEBUGMSGTL(("verbose:rdbmsRelTable:rdbmsRelTable_container_init","called\n"));
-    
+
     if((NULL == cache) || (NULL == container_ptr_ptr)) {
         snmp_log(LOG_ERR,"bad params to rdbmsRelTable_container_init\n");
         return;
@@ -187,7 +187,7 @@ rdbmsRelTable_cache_load(netsnmp_container *container)
      * the container.
      */
 
-    if (PQstatus(dbconn) == CONNECTION_OK) 
+    if (PQstatus(dbconn) == CONNECTION_OK)
 	    pg_db_qry = PQexec(dbconn, "SELECT datid, EXTRACT(YEAR FROM pg_postmaster_start_time()), EXTRACT(MONTH FROM pg_postmaster_start_time()), EXTRACT(DAY FROM pg_postmaster_start_time()), EXTRACT(HOUR FROM pg_postmaster_start_time()), EXTRACT(MINUTE FROM pg_postmaster_start_time()), EXTRACT(SECOND FROM pg_postmaster_start_time()), EXTRACT(MILLISECOND FROM pg_postmaster_start_time()), EXTRACT(TIMEZONE_HOUR FROM pg_postmaster_start_time()), EXTRACT(TIMEZONE_MINUTE FROM pg_postmaster_start_time()) FROM pg_stat_database");
     else {
 	    snmp_log(LOG_ERR, "Can't get connected to the database");
@@ -235,7 +235,7 @@ rdbmsRelTable_cache_load(netsnmp_container *container)
        rdbmsRelState_map(&rowreq_ctx->data.rdbmsRelState, INTERNAL_RDBMSRELSTATE_ACTIVE)) {
         return MFD_ERROR;
     }
-    
+
 	rowreq_ctx->data.activeTimeYear = atoi(PQgetvalue(pg_db_qry, i, 1));
 	rowreq_ctx->data.activeTimeMonth = atoi(PQgetvalue(pg_db_qry, i, 2));
 	rowreq_ctx->data.activeTimeDay = atoi(PQgetvalue(pg_db_qry, i, 3));
@@ -248,10 +248,10 @@ rdbmsRelTable_cache_load(netsnmp_container *container)
 	tmpInt = rowreq_ctx->data.activeTimeUtcOffsetHours * 60 + rowreq_ctx->data.activeTimeUtcOffsetMinutes;
 	if (tmpInt == 0)
 		rowreq_ctx->data.activeTimeUtcOffsetDirection = 0;
-	else 
+	else
 		rowreq_ctx->data.activeTimeUtcOffsetDirection = (tmpInt > 0 ? 1 : -1);
-    
-        
+
+
         /*
          * insert into table container
          */
